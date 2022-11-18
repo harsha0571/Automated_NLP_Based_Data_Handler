@@ -15,6 +15,8 @@ nltk.download('brown')  # downloads the large nltk corpus of words
 nlp = spacy.load("en_core_web_sm")  # loads spacy's english core library
 sw_spacy = nlp.Defaults.stop_words
 
+with open('./url.txt','r') as f:
+    url_list = [line[:-1] for line in f]
 
 # create list of all possible stemming for each root word  -> possible = d[stemmer.stem('letting')]
 
@@ -56,7 +58,7 @@ def nospecial(text):
 # spider function to crawl the ted talks website for articles to get title and the keywords from the meta tag
 
 
-start_url = "https://www.ted.com/talks/olivia_vinckier_a_colorful_case_for_outside_the_box_thinking_on_identity"
+start_url = url_list[-1]
 
 # download and put the compatible chromedriver in this location
 
@@ -126,8 +128,11 @@ def spider(url, titles, found):
         titles.append(og_title)
         print(og_title)
         print(result)
-        f = open('dataset.txt', 'a')
+        f = open('dataset2.txt', 'a')
         f.write(og_title + "\t" + '_'.join(k for k in result) + "\n")
+        f.close()
+        f = open('url.txt', 'a')
+        f.write(url+"\n")
         f.close()
 
     divs = soup.find_all("a", {"class": "mb-5 block p-3"})
@@ -139,5 +144,5 @@ def spider(url, titles, found):
             spider(base_url+href[0], titles, found)
 
 
-spider(start_url, [], [start_url])
+spider(start_url, [], url_list)
 driver.close()
