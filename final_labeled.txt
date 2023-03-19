@@ -7,19 +7,19 @@ help for kids the education system ignores	help_kids_education
 lets teach for mastery not test scores	teach_mastery_scores
 lets use video to reinvent education	video_education
 just how small is an atom	small_atom
-plankton chronicles project the secret life of plankton	plankton_chronicles_life_plankton
-will the ocean ever run out of fish	ocean_out_fish
+plankton chronicles project the secret life of plankton	plankton_chronicles_life
+will the ocean ever run out of fish	ocean_fish
 underwater farms vs climate change	underwater_farms_climate_change
 what really happens to the plastic you throw away	plastic_throw
 are we running out of clean water	running_clean_water
 what would happen if every human suddenly disappeared	happen_human_disappeared
-what if cracks in concrete could fix themselves	cracks_concrete_fix_themselves
-whats a smartphone made of	smartphone_made
+what if cracks in concrete could fix themselves	cracks_concrete_fix
+whats a smartphone made of	smartphone
 demand a fair trade cell phone	trade_cell_phone
 africas cheetahs versus hippos	africas_cheetahs_hippos
 aid versus trade	aid_trade
 invest in africas own solutions	africas_solutions
-in praise of macro yes macro finance in africa	macro_macro_finance_africa
+in praise of macro yes macro finance in africa	macro_finance_africa
 why invest in africa	invest_africa
 want to help africa do business here	africa_business
 a commodities exchange for ethiopia	commodities_exchange_ethiopia
@@ -33,7 +33,7 @@ a critical look at geoengineering against climate change	geoengineering_climate
 salvation and profit in greentech	profit_greentech
 new thinking on the climate crisis	climate_crisis
 the route to a sustainable future	route_sustainable
-cradle to cradle design	cradle_cradle_design
+cradle to cradle design	cradle_design
 the blur building and other tech empowered architecture	blur_building_tech_architecture
 behind the design of seattles library	seattles_library
 building a theater that remakes itself	theater_remakes
@@ -53,7 +53,7 @@ underwater astonishments	underwater
 the shrimp with a kick	shrimp_kick
 the emergent genius of ant colonies	genius_ant_colonies
 my wish build the encyclopedia of life	encyclopedia_life
-how humans and animals can live together	humans_animals_together
+how humans and animals can live together	humans_animals
 the gentle genius of bonobos	genius_bonobos
 evolutions gift of play from bonobo apes to humans	evolutions_bonobo_apes_humans
 play is more than just fun	play_fun
@@ -108,7 +108,7 @@ magical houses made of bamboo	houses_bamboo
 why the buildings of the future will be shaped by you	buildings_future_shaped
 how architecture can connect us	architecture_connect
 my wish a call for opensource architecture	opensource_architecture
-architecture for the people by the people	architecture_people_people
+architecture for the people by the people	architecture_people
 the birth of wikipedia	birth_wikipedia
 the web as random acts of kindness	web_random_kindness
 the surprising decline in violence	decline_violence
@@ -124,9 +124,9 @@ does time exist	time
 questions no one knows the answers to	questions_knows_answers
 how web video powers global innovation	web_video_innovation
 the child driven education	child_education
-kids can teach themselves	kids_teach_themselves
+kids can teach themselves	kids_teach
 build a school in the cloud	school_cloud
-teaching one child at a time	teaching_one_child
+teaching one child at a time	teaching_child
 kids take charge	kids_charge
 the fight against sex slavery	fight_sex_slavery
 happiness in body and soul	happiness_body_soul
@@ -162,7 +162,7 @@ what went wrong at the lhc	wrong_lhc
 cerns supercollider	cerns_supercollider
 making sense of string theory	string_theory
 shedding light on dark matter	dark_matter
-what we can learn from galaxies far far away	learn_galaxies_far_far_away
+what we can learn from galaxies far far away	learn_galaxies_far_away
 the shared wonder of film	wonder_film
 my wish a global day of film	global_day_film
 how virtual reality can create the ultimate empathy machine	virtual_reality_empathy_machine
@@ -183,9 +183,9 @@ woza	woza
 tembererana	tembererana
 peace on earth	peace_earth
 global warmings theme song manhattan in january	global_warmings_song_manhattan
-the jill and julia show	jill_julia_show
-letting go of god	go_god
-lets teach religion all religion in schools	teach_religion_religion_schools
+the jill and julia show	jill_julia
+letting go of god	god
+lets teach religion all religion in schools	teach_religion_schools
 a life of purpose	life_purpose
 lose your ego find your compassion	ego_compassion
 the profound journey of compassion	journey_compassion
@@ -219,7 +219,7 @@ flow the secret to happiness	secret_happiness
 the new era of positive psychology	era_positive_psychology
 the paradox of choice	paradox_choice
 how to make hard choices	hard_choices
-dont regret regret	regret_regret
+dont regret regret	regret
 on being wrong	wrong
 8 secrets of success	8_secrets_success
 what i learned from 100 days of rejection	learned_100_days_rejection
@@ -295,7 +295,7 @@ beauty truth and physics	truth_physics
 symmetry realitys riddle	symmetry_realitys
 an 8dimensional model of the universe	model_universe
 how we explore unanswered questions in physics	unanswered_questions_physics
-is our universe the only universe	our_universe_universe
+is our universe the only universe	universe
 questioning the universe	universe
 why the universe seems so strange	universe_strange
 science versus wonder	science_wonder
@@ -324,9 +324,9 @@ lets revive the golden rule	golden_rule
 depression the secret we share	depression_share
 confessions of a depressed comic	depressed_comic
 whats so funny about mental illness	funny_mental_illness
-on being just crazy enough	crazy_enough
+on being just crazy enough	crazy
 the year i was homeless	homeless
-what happens when you lose everything	lose_everything
+what happens when you lose everything	lose
 in praise of slowness	slowness
 why we should embrace aging as an adventure	aging_adventure
 how i became an entrepreneur at 66	entrepreneur_66
@@ -343,7 +343,7 @@ the era of open innovation	era_innovation
 the new power of collaboration	power_collaboration
 institutions vs collaboration	institutions_collaboration
 the new opensource economics	opensource_economics
-life in second life	life_second_life
+life in second life	life_second
 a glimpse of the future through an augmented reality headset	future_augmented_reality
 the accelerating power of technology	power_technology
 how technology evolves	technology_evolves
@@ -355,8 +355,8 @@ googles driverless car	googles_driverless
 robots that fly and cooperate	robots_fly_cooperate
 the surprising habits of original thinkers	habits_original_thinkers
 are you a giver or a taker	giver_taker
-my year of saying yes to everything	yes_everything
-how to use data to make a hit tv show	data_hit_show
+my year of saying yes to everything	yes
+how to use data to make a hit tv show	data_hit
 the conscience of television	conscience_television
 the surprising spread of idol tv	idol_tv
 why nations should pursue soft power	soft_power
@@ -389,7 +389,7 @@ the path to ending ethnic conflicts	ethnic_conflicts
 my message of peace from pakistan	peace_pakistan
 reporting crisis via texting	crisis_texting
 how mobile phones can fight poverty	phones_poverty
-one laptop per child two years on	laptop_child_two
+one laptop per child two years on	laptop_child
 5 predictions from 1984	5_predictions_1984
 a 30 year history of the future	30_history_future
 one laptop per child	laptop_child
@@ -407,7 +407,7 @@ how well stop polio for good	stop_polio
 moving photos of extreme drug resistant tb	photos_resistant_tb
 the face of aids in africa	aids_africa
 why i am an hiv aids activist	hiv_activist
-mothers helping mothers fight hiv	mothers_mothers_fight_hiv
+mothers helping mothers fight hiv	mothers_fight_hiv
 sex drugs and hiv lets get rational	sex_drugs_hiv
 flip your thinking on aids in africa	aids_africa
 how juries are fooled by statistics	juries_statistics
@@ -432,7 +432,7 @@ how to get your ideas to spread	ideas_spread
 confessions of a recovering micromanager	confessions_micromanager
 why the secret to success is setting the right goals	secret_success_goals
 how to build and rebuild trust	build_rebuild_trust
-weve stopped trusting institutions and started trusting strangers	trusting_institutions_trusting_strangers
+weve stopped trusting institutions and started trusting strangers	trusting_institutions_strangers
 how airbnb designs for trust	airbnb_trust
 ubers plan to get more people into fewer cars	ubers_fewer_cars
 the hidden world of shadow cities	shadow_cities
@@ -441,19 +441,19 @@ why eyewitnesses get it wrong	eyewitnesses_wrong
 we need to about an injustice talk	injustice_talk
 americas native prisoners of war	americas_native_prisoners
 the hidden reason for poverty the world needs to address now	reason_poverty_world
-a third way to think about aid	third_way_aid
+a third way to think about aid	way_aid
 my wish rebuilding rwanda	rebuilding_rwanda
 a hospital tour in nigeria	hospital_nigeria
 a parable for kenya	parable_kenya
 how to overcome apathy and find your power	apathy_power
 reflections from a lifetime fighting to end child poverty	reflections_fighting_child_poverty
-3 questions to ask yourself about everything you do	3_questions_everything
+3 questions to ask yourself about everything you do	3_questions
 the revolutionary power of diverse thought	power_thought
 the politics of fiction	politics_fiction
 africa is a sleeping giant im trying to wake it up	africa_sleeping_wake
 3 ways to uproot a culture of corruption	3_ways_culture_corruption
 reducing corruption takes a specific kind of investment	reducing_corruption_investment
-three myths about corruption	three_myths_corruption
+three myths about corruption	myths_corruption
 how to expose the corrupt	expose_corrupt
 how open data is changing international aid	data_changing_aid
 how to rebuild a broken state	rebuild_broken_state
@@ -468,12 +468,12 @@ rethink the desktop with bumptop	desktop_bumptop
 whats the next window into our universe	window_universe
 a 3d atlas of the universe	3d_atlas_universe
 the death of the universe	death_universe
-dark matter the matter we cant see	dark_matter_matter_see
+dark matter the matter we cant see	dark_matter
 how ligo discovered gravitational waves and what might be next	ligo_gravitational_waves
 what the discovery of gravitational waves means	discovery_gravitational_waves
 this telescope might show us the beginning of the universe	telescope_beginning_universe
-the search for planets beyond our solar system	search_planets_beyond_solar
-how mars might hold the secret to the origin of life	might_origin_life
+the search for planets beyond our solar system	search_planets_solar
+how mars might hold the secret to the origin of life	origin_life
 the story behind the mars rovers	story_mars_rovers
 your kids might live on mars heres how theyll survive	kids_live_mars_survive
 lets not use mars as a backup planet	mars_backup_planet
@@ -509,7 +509,7 @@ can a divided america heal	divided_america_heal
 what to trust in a posttruth world	trust_posttruth
 3 ways to spot a bad statistic	3_spot_statistic
 the spellbinding art of human anatomy	art_human_anatomy
-every piece of art youve ever wanted to see up close and searchable	art_up_close_searchable
+every piece of art youve ever wanted to see up close and searchable	art_close_searchable
 tidying up art	tidying_art
 nerdcore comedy	nerdcore_comedy
 aliens love where are they	aliens_love
@@ -530,9 +530,9 @@ how exactly does binary code work	binary_code
 hire the hackers	hire_hackers
 the real story of mcmafia how global crime networks work	story_mcmafia_crime_networks
 the deadly genius of drug cartels	genius_drug_cartels
-the good news on poverty yes theres good news	good_news_poverty_good_news
+the good news on poverty yes theres good news	good_news_poverty
 global population growth box by box	global_population_growth
-we need to feed the whole world	feed_whole_world
+we need to feed the whole world	feed_world
 cooking as alchemy	cooking_alchemy
 sustainable seafood lets get smart	sustainable_seafood
 how i fell in love with a fish	love_fish
@@ -548,7 +548,7 @@ how an obese town lost a million pounds	obese_town_lost_pounds
 the walkable city	walkable_city
 new yorks streets not so mean any more	new_yorks_streets_mean
 take turns	turns
-dont ask where im from ask where im a local	where_from_where_local
+dont ask where im from ask where im a local	local
 be suspicious of simple stories	suspicious_stories
 how ideas trump crises	ideas_crises
 global priorities bigger than climate change	priorities_climate_change
@@ -589,14 +589,14 @@ can the damaged brain repair itself	damaged_brain_repair
 growing evidence of brain plasticity	evidence_brain_plasticity
 a monkey that controls a robot with its thoughts no really	monkey_controls_robot_thoughts
 how to look inside the brain	inside_brain
-how your brain tells you where you are	brain_tells_where
+how your brain tells you where you are	brain_tells
 the real reason for brains	reason_brains
 suddenly my body	body
 unlock the intelligence passion greatness of girls	intelligence_passion_girls
 a realistic vision for world peace	vision_world_peace
 the technology of the heart	technology_heart
 the empathic civilization	empathic_civilization
-lifes third act	lifes_third_act
+lifes third act	lifes_act
 the hunt for unexpected genetic heroes	hunt_genetic_heroes
 lets pool our medical data	pool_medical
 what doctors dont know about the drugs they prescribe	doctors_drugs_prescribe
@@ -661,7 +661,7 @@ design and the elastic mind	design_mind
 treat design as art	design_art
 designers think big	designers
 tales of creativity and play	creativity_play
-great design is serious not solemn	design_serious
+great design is serious not solemn	design
 designing books is no laughing matter ok it is	books_laughing
 lessons from past presidents	lessons_presidents
 planning for the end of oil	planning_oil
@@ -686,7 +686,7 @@ the ancient ingenuity of water harvesting	ingenuity_water_harvesting
 learn to use the 13th century astrolabe	13th_astrolabe
 sputnik mania	sputnik
 how to survive a nuclear attack	survive_nuclear
-the world doesnt need more nuclear weapons	world_more_nuclear
+the world doesnt need more nuclear weapons	world_nuclear
 we need nuclear power to solve climate change	nuclear_power_climate
 want to innovate become a nowist	innovate_nowist
 from mach 20 glider to hummingbird drone	mach_20_hummingbird_drone
@@ -696,7 +696,7 @@ how big is the ocean	big_ocean
 how tsunamis work	tsunamis
 the physics of surfing	physics_surfing
 how rollercoasters affect your body	rollercoasters_body
-the physics of the hardest move in ballet	physics_move_ballet
+the physics of the hardest move in ballet	physics_ballet
 ballroom dance that breaks gender roles	ballroom_dance_gender
 a dance in a hurricane of paper wind and light	dance_hurricane_wind_light
 in the internet age dance evolves	internet_dance_evolves
@@ -718,7 +718,7 @@ why should you read the master and margarita	master_margarita
 why should you read crime and punishment	read_crime_punishment
 titan of terror the dark imagination of hp lovecraft	titan_terror_hp_lovecraft
 why should you read edgar allan poe	read_edgar_allan_poe
-why should you read one hundred years of solitude	read_hundred_years_solitude
+why should you read one hundred years of solitude	read_years_solitude
 why should you read a midsummer nights dream	read_midsummer_nights_dream
 why should you read shakespeares the tempest	read_shakespeares_tempest
 why should you read fahrenheit 451	read_fahrenheit_451
@@ -736,12 +736,12 @@ beautiful new words to describe obscure emotions	words_obscure_emotions
 go ahead make up new words	new_words
 the joy of lexicography	lexicography
 the opposites game	game
-first kiss	first_kiss
+first kiss	kiss
 why should you read sylvia plath	read_sylvia_plath
-if i should have a daughter	have_daughter
+if i should have a daughter	daughter
 poems of war peace women power	poems_war_peace_women_power
 how i use the drum to tell my story	drum_tell_story
-a call to men	call_men
+a call to men	men
 violence against women its a mens issue	violence_women_mens
 why domestic violence victims dont leave	domestic_violence_victims
 how we turned the tide on domestic violence hint the polaroid helped	turned_domestic_violence_polaroid
@@ -755,7 +755,7 @@ why videos go viral	videos_viral
 how to engineer a viral music video	engineer_viral_music
 glorious visions in animation and performance	visions_animation_performance
 on violin and cello passacaglia	violin_cello_passacaglia
-music is medicine music is sanity	music_medicine_music_sanity
+music is medicine music is sanity	music_medicine_sanity
 the 4 ways sound affects us	4_ways_sound
 everything you hear on film is a lie	hear_film_lie
 the unexpected beauty of everyday sounds	everyday_sounds
@@ -775,7 +775,7 @@ the untapped genius that could change science for the better	genius_science_bett
 my road trip through the whitest towns in america	road_trip_whitest_towns_america
 how to raise a black son in america	raise_black_son_america
 the danger of silence	danger_silence
-please dont take my air jordans	take_air_jordans
+please dont take my air jordans	air_jordans
 mockingbird remix of ted 2006	mockingbird_remix_ted_2006
 a powerful poem about what it feels like to be transgender	poem_feels_transgender
 fifty shades of gay	shades_gay
@@ -786,7 +786,7 @@ why global jihad is losing	global_jihad
 faith versus tradition in islam	faith_tradition_islam
 superheroes inspired by islam	superheroes_islam
 east vs west the myths that mystify	east_west_myths
-the rise of cricket the rise of india	rise_cricket_rise_india
+the rise of cricket the rise of india	rise_cricket_india
 ideas for indias future	indias_future
 new rules for rebuilding a broken nation	rules_rebuilding_nation
 in defense of dialogue	defense_dialogue
@@ -805,7 +805,7 @@ how i swam the north pole	swam_north_pole
 why bother leaving the house	leaving_house
 a leap from the edge of space	edge_space
 if superpowers were real super strength	superpowers_super_strength
-a broken body isnt a broken person	broken_body_broken
+a broken body isnt a broken person	broken_body
 the hunt for general tso	general_tso
 why not eat insects	eat_insects
 the future of good food in china	future_food_china
@@ -840,8 +840,8 @@ which country does the most good for the world	country_good_world
 who would the rest of the world vote for in your countrys election	world_vote_countrys_election
 its time for women to run for office	time_women_office
 the career advice you probably didnt get	career_advice
-why we have too few women leaders	few_women_leaders
-so we leaned in now what	leaned_now
+why we have too few women leaders	women_leaders
+so we leaned in now what	leaned
 a girl who demanded school	girl_demanded_school
 dare to educate afghan girls	educate_afghan_girls
 how i stopped the taliban from shutting down my school	taliban_shutting_school
@@ -864,13 +864,13 @@ mentalism mind reading and the art of getting inside your head	mentalism_art_ins
 the end of history illusion	history_illusion
 how playing an instrument benefits your brain	instrument_benefits_brain
 why we love repetition in music	love_repetition_music
-why should you listen to vivaldis four seasons	listen_vivaldis_four_seasons
+why should you listen to vivaldis four seasons	listen_vivaldis_seasons
 how to read music	read_music
-how to practice effectively for just about anything	practice_effectively_anything
+how to practice effectively for just about anything	practice_effectively
 what is bipolar disorder	bipolar_disorder
 the world needs all kinds of minds	world_minds
 the forgotten history of autism	history_autism
-autism what we know and what we dont know yet	autism_know_know
+autism what we know and what we dont know yet	autism_know
 a new way to diagnose autism	diagnose_autism
 how autism freed me to be myself	autism_freed
 the cheap allterrain wheelchair	allterrain_wheelchair
@@ -885,7 +885,7 @@ meet the water canary	water_canary
 how to keep rivers and streams flowing	rivers_streams_flowing
 3 thoughtful ways to conserve water	3_ways_conserve_water
 4 ways we can avoid a catastrophic drought	4_ways_catastrophic_drought
-a country with no water	country_no_water
+a country with no water	country_water
 climate change is happening heres how we adapt	climate_change_adapt
 put a value on nature	value_nature
 profits not always the point	profits_point
@@ -947,7 +947,7 @@ victims of the city	victims_city
 how economic inequality harms societies	economic_inequality_societies
 doesnt everyone deserve a chance at a good life	deserve_good_life
 everyone around you has a story the world needs to hear	story_world_hear
-my wish use art to turn the world inside out	wish_art_world_inside_out
+my wish use art to turn the world inside out	wish_art_world_inside
 retouching lives through photos	retouching_lives_photos
 this is what enduring love looks like	enduring_love
 the amazing story of the man who gave us modern pain relief	story_modern_pain_relief
@@ -955,8 +955,8 @@ how do we heal medicine	heal_medicine
 its time to redesign medical data	redesign_medical_data
 what makes us get sick look upstream	sick_look_upstream
 health care should be a team sport	health_care_team_sport
-my wish three unusual medical inventions	three_medical_inventions
-parkinsons depression and the switch that might turn them off	parkinsons_depression_switch_off
+my wish three unusual medical inventions	medical_inventions
+parkinsons depression and the switch that might turn them off	parkinsons_depression_switch
 your brain is more than a bag of chemicals	brain_bag_chemicals
 reengineering the brain	reengineering_brain
 a brain in a supercomputer	brain_supercomputer
@@ -976,7 +976,7 @@ why the only future worth building includes everyone	future_building
 our moral imperative to act on climate change and 3 steps we can take	moral_imperative_climate_change
 this decade calls for earthshots to repair our planet	earthshots_repair_planet
 the city planting a million trees in two years	planting_trees
-climate justice cant happen without racial justice	climate_justice_racial_justice
+climate justice cant happen without racial justice	climate_justice_racial
 the energy africa needs to develop and fight climate change	energy_africa_climate_change
 to save the climate we have to reimagine capitalism	save_climate_capitalism
 apples promise to be carbon neutral by 2030	apples_carbon_neutral_2030
@@ -1007,26 +1007,26 @@ a global culture to fight extremism	global_culture_extremism
 terrorism is a failed brand	terrorism_failed
 the intricate economics of terrorism	economics_terrorism
 navigating our global future	navigating_future
-the earth is full	earth_full
+the earth is full	earth
 abundance is our future	abundance_future
-how fast are you moving right now	fast_moving_now
+how fast are you moving right now	fast_moving
 is there a center of the universe	center_universe
-what is the universe made of	universe_made
+what is the universe made of	universe
 how big is infinity	big_infinity
 the unexpected math behind van goghs starry night	math_van_goghs_starry_night
 who decides what art means	art_means
 why dont perpetual motion machines ever work	perpetual_motion_work
 can you survive nuclear fallout	survive_nuclear_fallout
-why civilians suffer more once a war is over	civilians_suffer_war_over
+why civilians suffer more once a war is over	civilians_suffer_war
 what its like to be a parent in a war zone	parent_war_zone
 two nameless bodies washed up on the beach here are their stories	nameless_bodies_beach_stories
 lets help refugees thrive not just survive	refugees_thrive_survive
-a boat carrying 500 refugees sunk at sea the story of two survivors	500_refugees_sea_two_survivors
+a boat carrying 500 refugees sunk at sea the story of two survivors	500_refugees_sea_survivors
 dont feel sorry for refugees believe in them	sorry_refugees_believe
 the refugee crisis is a test of our character	refugee_crisis_character
 this is what democracy looks like	democracy_looks
 how and why russia hacked the us election	russia_hacked_election
-everyday cybercrime and what you can do about it	everyday_cybercrime_about
+everyday cybercrime and what you can do about it	everyday_cybercrime
 hackers the internets immune system	hackers_internets_immune
 the case for a decentralized internet	decentralized_internet
 how technology can fight extremism and online harassment	technology_extremism_online_harassment
@@ -1036,7 +1036,7 @@ did you hear the one about the iranian american	hear_iranian_american
 the axis of evil middle east comedy tour	middle_east_comedy_tour
 pop culture in the arab world	pop_culture_arab
 a saudi an indian and an iranian walk into a qatari bar	saudi_indian_iranian_qatari_bar
-three ideas three contradictions or not	three_ideas_three_contradictions
+three ideas three contradictions or not	ideas_contradictions
 the beauty of being a misfit	beauty_misfit
 wisdom from great writers on every year of life	wisdom_writers_year_life
 in search of the man who broke my neck	search_man_broke_neck
@@ -1048,10 +1048,10 @@ did ancient troy really exist	ancient_troy
 history vs augustus	history_augustus
 how to understand power	understand_power
 how to revive your belief in democracy	revive_belief_democracy
-theres no such thing as not voting	not_voting
+theres no such thing as not voting	voting
 demand a more opensource government	demand_opensource_government
 coding a better government	coding_better_government
-why good hackers make good citizens	good_hackers_good_citizens
+why good hackers make good citizens	good_hackers_citizens
 addicted to risk	addicted_risk
 photographing the landscape of oil	landscape_oil
 a new vision for rebuilding detroit	vision_rebuilding_detroit
@@ -1066,8 +1066,8 @@ how supercharged plants could slow climate change	supercharged_plants_climate_ch
 lets launch a satellite to track a threatening greenhouse gas	satellite_track_greenhouse
 lets clean up the space junk orbiting earth	clean_space_junk_orbiting
 the world is one big dataset now how to photograph it	world_dataset_photograph
-why we need to go back to mars	back_mars
-our next giant leap	next_leap
+why we need to go back to mars	mars
+our next giant leap	leap
 zero g flight	zero_g_flight
 can technology solve our big problems	technology_solve_problems
 3 moons and a planet that could have alien life	3_moons_planet_alien_life
@@ -1086,7 +1086,7 @@ the case for optimism on climate change	optimism_climate_change
 lets prepare for our new climate	prepare_new_climate
 the case for optimism	case_optimism
 how the military fights climate change	military_climate_change
-whats hidden under the greenland ice sheet	under_greenland_ice
+whats hidden under the greenland ice sheet	greenland_ice
 drawings that show the beauty and fragility of earth	drawings_beauty_fragility_earth
 the secrets i find on the mysterious ocean floor	secrets_ocean_floor
 glow in the dark sharks and other stunning sea creatures	glow_dark_sharks_sea
@@ -1126,19 +1126,19 @@ the future of business is the mesh	future_business_mesh
 the currency of the new economy is trust	currency_economy_trust
 what we dont understand about trust	understand_trust
 why democracy matters	democracy
-the next age of government	next_government
+the next age of government	government
 my battle to expose government corruption	battle_government_corruption
 how mobile phones helped solve two murders	mobile_solve_murders
 beware online filter bubbles	online_filter
 a magna carta for the web	magna_carta
-the next web	next_web
+the next web	web
 the global goals weve made progress on and the ones we havent	global_goals_progress
 see how the rest of the world lives organized by income	world_organized_income
 how not to be ignorant about the world	ignorant_world
 the way we think about work is broken	think_work_broken
 why gender equality is good for everyone men included	gender_equality_men
 how equal do we want the world to be you would be surprised	equal_world
-new thoughts on capital in the twenty first century	capital_twenty_first_century
+new thoughts on capital in the twenty first century	capital_century
 beware fellow plutocrats the pitchforks are coming	plutocrats_pitchforks
 does money make you mean	money_mean
 how to buy happiness	buy_happiness
@@ -1160,8 +1160,8 @@ this is your brain on communication	brain_communication
 teds secret to great public speaking	teds_secret_speaking
 how a startup in the white house is changing business as usual	startup_white_house_business
 how the internet will one day transform government	internet_transform_government
-four principles for the open world	four_principles_world
-connected but alone	connected_alone
+four principles for the open world	principles_world
+connected but alone	connected
 we are all cyborgs now	cyborgs
 robots that show emotion	robots_emotion
 playtime with pleo your robotic dinosaur friend	playtime_pleo_dinosaur
@@ -1195,10 +1195,10 @@ really achieving your childhood dreams	achieving_childhood_dreams
 nature beauty gratitude	nature_beauty_gratitude
 love letters to strangers	letters_strangers
 meet the founder of the blog revolution	founder_blog_revolution
-you are not alone in your loneliness	alone_loneliness
+you are not alone in your loneliness	loneliness
 12 truths i learned from life and writing	12_truths_life_writing
 the social animal	social_animal
-why we do what we do	do_do
+why we do what we do	do
 why being respectful to your coworkers is good for business	respectful_coworkers_business
 looking for a job highlight your ability not your experience	job_highlight_ability_experience
 what makes us feel good about our work	feel_good_work
@@ -1290,11 +1290,11 @@ hidden toxins in the fish we eat	toxins_fish_eat
 the intriguing sound of marine mammals	sound_marine_mammals
 could we speak the language of dolphins	speak_language_dolphins
 inside the secret shipping industry	shipping_industry
-the four fish were overeating and what to eat instead	four_fish_overeating
+the four fish were overeating and what to eat instead	fish_overeating
 the case for fish farming	fish_farming
 how to win at evolution and survive a mass extinction	win_evolution_extinction
 you have no idea where camels really come from	idea_camels
-the coolest animal you know nothing about and how we can save it	coolest_animal_nothing_save
+the coolest animal you know nothing about and how we can save it	coolest_animal_save
 hopeful lessons from the battle to save rainforests	lessons_save_rainforests
 why i must speak out about climate change	speak_climate_change
 the emergent patterns of climate change	patterns_climate_change
@@ -1309,14 +1309,14 @@ will automation take away all our jobs	automation_jobs
 social media and the end of gender	social_media_gender
 dont like clickbait dont click	like_clickbait
 lets try emotional correctness	emotional_correctness
-take the other to lunch	other_lunch
+take the other to lunch	lunch
 my year of living biblically	year_biblically
 playing invisible turntables	invisible_turntables
 my magic moves	magic_moves
 juggling as art and science	juggling_art_science
 dance to change the world	dance_change
 a fullband beatbox	fullband_beatbox
-color blind or color brave	color_blind_color_brave
+color blind or color brave	color_blind_brave
 4 pillars of college success in science	college_success_science
 hey science teachers make it fun	science_teachers_fun
 science is for everyone kids included	science_kids
@@ -1332,7 +1332,7 @@ my wish to launch a new era of openness in business	launch_openness_business
 meet global corruptions hidden players	global_corruptions
 the panama papers exposed a huge global problem whats next	panama_papers_exposed_problem
 how the panama papers journalists broke the biggest leak in history	panama_papers_biggest_leak
-heres how we take back the internet	take_back_internet
+heres how we take back the internet	internet
 how the nsa betrayed the worlds trust time to act	nsa_betrayed_trust
 the power and the danger of online crowds	power_danger_online
 inside the ant colony	ant_colony
@@ -1368,7 +1368,7 @@ how to revive a neighborhood with imagination beauty and art	revive_neighborhood
 how public spaces make cities work	public_spaces_cities
 brilliant designs to fit more people in every city	designs_fit_people_city
 the surprising math of cities and corporations	math_cities_corporations
-stern the state of the climate and what we might do about it	stern_state_climate_about
+stern the state of the climate and what we might do about it	stern_state_climate
 the shareable future of cities	shareable_future_cities
 the biggest risks facing cities and some solutions	risks_cities_solutions
 how to protect fast growing cities from failing	protect_growing_cities
@@ -1383,8 +1383,8 @@ cool tricks your phone can do	tricks_phone
 tools for a better world	tools_world
 how mobile phones power disaster relief	mobile_disaster_relief
 when bad engineering makes a natural disaster even worse	engineering_natural_disaster
-how to step up in the face of disaster	step_up_disaster
-how to motivate people to do good for others	motivate_good_others
+how to step up in the face of disaster	step_disaster
+how to motivate people to do good for others	motivate_good
 why some people are more altruistic than others	people_altruistic
 how to let altruism be your guide	altruism_guide
 why giving away our wealth has been the most satisfying thing weve done	wealth_satisfying
@@ -1417,7 +1417,7 @@ biolab on a microchip	biolab_microchip
 a lab the size of a postage stamp	lab_postage_stamp
 how i harnessed the wind	harnessed_wind
 the birth of the computer	birth_computer
-the greatest machine that never was	greatest_machine_never
+the greatest machine that never was	greatest_machine
 2600 years of history in one object	2600_years_history
 the global power shift	global_shift
 on being a woman and a diplomat	woman_diplomat
@@ -1437,7 +1437,7 @@ gaming for understanding	gaming_understanding
 a manifesto for play for bulgaria and beyond	manifesto_play_bulgaria
 how to recover from activism burnout	recover_activism_burnout
 3 lessons on starting a movement from a selfdefense trailblazer	3_lessons_selfdefense_trailblazer
-the most powerful woman youve never heard of	powerful_woman_never
+the most powerful woman youve never heard of	powerful_woman
 the trauma of systematic racism is killing black women a first step toward change	trauma_racism_black_women_change
 how racism makes us sick	racism_sick
 the problem with racebased medicine	racebased_medicine
@@ -1467,7 +1467,7 @@ a graziano what is consciousness	graziano_consciousness
 the surprising link between stress and memory	link_stress_memory
 how stress affects your brain	stress_brain
 what is depression	depression
-what is deja vu what is deja vu	deja_vu_deja_vu
+what is deja vu what is deja vu	deja_vu
 dont suffer from your depression in silence	suffer_depression_silence
 no shame in taking care of your mental health	shame_mental_health
 your words may predict your future mental health	words_predict_mental_health
@@ -1478,7 +1478,7 @@ what we learn before were born	learn_born
 how to live to be 100	live_100
 is the obesity crisis hiding a bigger problem	obesity_crisis
 visualizing the medical data explosion	visualizing_medical_data
-big data is better data	big_data_data
+big data is better data	big_data
 dont fear intelligent machines work with them	fear_intelligent_machines
 3 principles for creating safer ai	principles_safer_ai
 can we build ai without losing control over it	build_ai_control
@@ -1490,7 +1490,7 @@ the freakonomics of crack dealing	freakonomics_dealing
 the political power of being a good neighbor	power_good_neighbor
 3 ways to practice civility	practice_civility
 the counter intuitive way to be more persuasive	intuitive_persuasive
-how to win an argument at the us supreme court or anywhere	argument_us_supreme_court
+how to win an argument at the us supreme court or anywhere	argument_supreme_court
 the lost art of democratic debate	lost_democratic_debate
 four ways to fix a broken legal system	fix_legal_system
 how to put the power of law in peoples hands	power_law_peoples
@@ -1516,7 +1516,7 @@ the science of attraction	science_attraction
 inside okcupid the math of online dating	okcupid_online_dating
 how to make applying for jobs less painful	applying_jobs_painful
 why you should bring your whole self to work	bring_self_work
-this is the side hustle revolution	side_hustle_revolution
+this is the side hustle revolution	hustle_revolution
 this is what makes employees happy at work	employees_happy_work
 why working from home is good for business	working_home_business
 8 lessons on building a company people enjoy working for	lessons_building_company_people
@@ -1525,13 +1525,13 @@ why working from home is good for business	working_home_business
 the difference between healthy and unhealthy love	healthy_unhealthy_love
 the gift and power of emotional courage	gift_power_emotional
 how i fail at being disabled	fail_disabled
-what reality are you creating for yourself	reality_yourself
+what reality are you creating for yourself	reality
 how i use sonar to navigate the world	sonar_navigate_world
 can we create new senses for humans	create_senses_humans
 design for all 5 senses	design_5_senses
 why i brought pacman to moma	pacman_moma
 how games make kids smarter	games_kids_smarter
-what young women believe about their own sexual pleasure	women_about_sexual_pleasure
+what young women believe about their own sexual pleasure	women_sexual_pleasure
 the lies we tell pregnant women	lies_pregnant_women
 the reporting system that sexual assault survivors want	reporting_assault_survivors
 why i believe the mistreatment of women is the number one human rights abuse	mistreatment_women_human_rights
@@ -1560,7 +1560,7 @@ the atlantic slave trade what too few textbooks told you	atlantic_slave_trade_te
 the symbols of systemic racism and how to take away their power	symbols_racism_power
 how my mom inspired my approach to the cello	mom_inspired_cello
 an artists unflinching look at racial violence	artists_racial_violence
-me too is a movement not a moment	me_too_movement
+me too is a movement not a moment	movement
 how online abuse of women has spiraled out of control	online_abuse_women_control
 the price of shame	price_shame
 a black man goes undercover in the altright	black_man_undercover
@@ -1569,7 +1569,7 @@ why your doctor should care about social justice	doctor_social_justice
 how well fight the next deadly virus	fight_virus
 how we must respond to the coronavirus pandemic	respond_coronavirus_pandemic
 how can we control the coronavirus pandemic	control_coronavirus_pandemic
-on what should and shouldnt worry us about the coronavirus	should_worry_coronavirus
+on what should and shouldnt worry us about the coronavirus	worry_coronavirus
 what we do and dont know about the coronavirus	know_coronavirus
 what it takes to crush a pandemic	crush_pandemic
 why rumors about vaccines spread and how to rebuild trust	rumors_vaccines_rebuild_trust
@@ -1580,7 +1580,7 @@ hiv and flu the vaccine strategy	hiv_flu_vaccine
 demo a needlefree vaccine patch thats safer and way cheaper	needlefree_vaccine_safer_cheaper
 a mobile fridge for vaccines	fridge_vaccines
 play experiment discover	experiment_discover
-how to stop screwing yourself over	stop_screwing_yourself
+how to stop screwing yourself over	stop_screwing
 why you should define your fears instead of your goals	define_fears_goals
 smash fear learn anything	smash_fear
 success failure and the drive to keep creating	success_failure_drive
@@ -1638,7 +1638,7 @@ lets raise kids to be entrepreneurs	kids_entrepreneurs
 the happy secret to better work	happy_secret_work
 this is what its really like to live with adhd	live_adhd
 what happens in your brain when you pay attention	brain_pay_attention
-the brain may be able to repair itself with help	brain_repair_itself
+the brain may be able to repair itself with help	brain_repair
 can we regenerate heart muscle with stem cells	regenerate_heart_stem
 an intergalactic guide to using a defibrillator	guide_defibrillator
 dogfriendly dog training	dogfriendly_training
@@ -1656,7 +1656,7 @@ how crispr lets you edit dna	crispr_edit_dna
 you are your microbes	microbes
 how do your hormones work	hormones_work
 how i help transgender teens become who they want to be	help_transgender
-why i must come out	come_out
+why i must come out	come
 the way we think about biological sex is wrong	think_biological_sex
 the biology of gender from dna to the brain	biology_gender_dna_brain
 how early life experience is written into dna	early_life_dna
@@ -1665,21 +1665,21 @@ a simple birth kit for mothers in the developing world	birth_kit_mothers_world
 how racism harms pregnant women and what can help	racism_pregnant_help
 how we can improve maternal healthcare before during and after pregnancy	improve_maternal_healthcare_pregnancy
 a new way to think about the transition to motherhood	think_transition_motherhood
-the us needs paid family leave for the sake of its future	us_family_leave_future
+the us needs paid family leave for the sake of its future	family_leave_future
 the case for having kids	case_kids
 a teen just trying to figure it out	teen_figure
-nature is everywhere we just need to learn to see it	nature_everywhere_learn
+nature is everywhere we just need to learn to see it	nature_learn
 a guerrilla gardener in south central la	guerrilla_gardener_central
 my subversive garden plot	garden_plot
 is the world getting better or worse a look at the numbers	world_better_numbers
 human nature and the blank slate	human_nature_blank
-be an artist right now	artist_now
+be an artist right now	artist
 embrace the shake	embrace_shake
 hack a banana make a keyboard	banana_keyboard
 building blocks that blink beep and teach	blocks_blink_beep_teach
 whats your 200 year plan	200_year_plan
 the magic of truth and lies and ipods	magic_truth_lies_ipods
-art that looks back at you	art_back
+art that looks back at you	art
 the future of lying	future_lying
 how to spot a liar	spot_liar
 the pattern behind self deception	pattern_deception
@@ -1700,7 +1700,7 @@ an astronauts story of curiosity perspective and change	astronauts_perspective_c
 adventures of an interplanetary architect	interplanetary_architect
 there might just be life on mars	life_mars
 the worlds first crowdsourced space traffic monitoring system	crowdsourced_space_traffic_monitoring
-the fundamentals of spacetime part 2	fundamentals_spacetime_part_2
+the fundamentals of spacetime part 2	fundamentals_spacetime_2
 sculpted space within and without	sculpted_space
 can you solve the passcode riddle	passcode_riddle
 can you solve the stolen rubies riddle	stolen_rubies_riddle
@@ -1740,7 +1740,7 @@ how im discovering the secrets of ancient texts	secrets_ancient_texts
 what is a butt tuba and why is it in medieval art	butt_tuba_medieval_art
 everything you need to know to read the canterbury tales	read_canterbury_tales
 the princess who rewrote history	princess_rewrote_history
-how our stories cross over	stories_over
+how our stories cross over	stories
 the tragedy of orphanages	tragedy_orphanages
 a new way to get every child ready for kindergarten	child_ready_kindergarten
 creative ways to get kids to thrive in school	kids_thrive_school
@@ -1759,7 +1759,7 @@ welcome to the genomic revolution	genomic_revolution
 his and hers health care	health_care
 what if our health care system kept us healthy	health_care_system_healthy
 the universal anesthesia machine	universal_anesthesia
-how i repaired my own heart	repaired_own_heart
+how i repaired my own heart	repaired_heart
 meet epatient dave	epatient_dave
 why the hospital of the future will be your own home	hospital_future_home
 the hidden role informal caregivers play in health care	informal_caregivers_health_care
@@ -1800,7 +1800,7 @@ indias hidden hotbeds of invention	indias_hotbeds_invention
 breakthrough designs for ultra low cost products	designs_low_cost
 solving social problems with a nudge	social_problems_nudge
 a skateboard with a boost	skateboard_boost
-no roads theres a drone for that	roads_drone	
+no roads theres a drone for that	roads_drone
 we are all designers	designers
 a mouse a laser beam a manipulated memory	mouse_laser_memory
 feats of memory anyone can do	feats_memory
@@ -1832,7 +1832,7 @@ how new technology helps blind people explore the world	technology_blind_explore
 design with the blind in mind	design_blind_mind
 how technology allowed me to read	technology_read
 our unhealthy obsession with choice	obsession_choice
-how the hyperlink changed everything	hyperlink_everything
+how the hyperlink changed everything	hyperlink
 why the pencil is perfect	pencil_perfect
 the genius of the london tube map	genius_london_tube_map
 the 3000 year history of the hoodie	3000_year_history_hoodie
@@ -1841,17 +1841,17 @@ how the button changed fashion	button_fashion
 how the jump rope got its rhythm	jump_rope_rhythm
 bring on the female superheroes	female_superheroes
 want to be an activist start with your toys	activist_start_toys
-how i accidentally changed the way movies get made	changed_movies_made
+how i accidentally changed the way movies get made	changed_movies
 how i use art to bridge misunderstanding	art_bridge_misunderstanding
 the radical act of choosing common ground	act_common_ground
 what happens when a silicon valley technologist works for the government	silicon_valley_works_government
 try something new for 30 days	try_new_30_days
-keep your goals to yourself	goals_yourself
+keep your goals to yourself	goals
 how prefab homes can transform affordable housing	prefab_homes_affordable_housing
 trusting the ensemble	trusting_ensemble
 the mad scientist of music	scientist_music
 hypnotic south asian improv music	south_asian_music
-why you dont like the sound of your own voice	sound_own_voice
+why you dont like the sound of your own voice	sound_voice
 a test for parkinsons with a phone call	test_parkinsons_phone
 alzheimers is not normal aging and we can cure it	alzheimers_aging_cure
 what your breath could reveal about your health	breath_reveal_health
@@ -1886,9 +1886,9 @@ a new kind of job market	new_job_market
 making global labor fair	global_labor_fair
 the other inconvenient truth	inconvenient
 lets end ageism	end_ageism
-four sisters in ancient rome	four_sisters_rome
+four sisters in ancient rome	sisters_rome
 did the amazons really exist	amazons_exist
-meet the women fighting on the front lines of an american war	women_fighting_front_american_war
+meet the women fighting on the front lines of an american war	women_fighting_american_war
 a new mission for veterans disaster relief	mission_veterans_disaster_relief
 how women in pakistan are creating political change	women_pakistan_political_change
 how pakistani women are taking the internet back	pakistani_women_internet
@@ -1904,14 +1904,14 @@ the security mirage	security_mirage
 fbi here i am	fbi
 the nsa responds to edward snowdens ted talk	nsa_edward_snowdens_ted_talk
 why privacy matters	privacy_matters
-how the us government spies on people who protest including you	us_government_spies_people_protest
+how the us government spies on people who protest including you	government_spies_people_protest
 we can fight terror without sacrificing our rights	fight_terror_rights
 why gun violence cant be our new normal	gun_violence_new_normal
 4 lessons i learned from taking a stand against drugs and gun violence	4_lessons_stand_drugs_gun_violence
 how christmas lights helped guerrillas put down their guns	christmas_lights_guerrillas_guns
-what six years in captivity taught me about fear and faith	six_years_captivity_fear_faith
+what six years in captivity taught me about fear and faith	years_captivity_fear_faith
 a letter to all who have lost in this era	letter_lost_era
-a tale of two americas and the minimart where they collided	tale_two_americas_minimart
+a tale of two americas and the minimart where they collided	tale_americas_minimart
 history vs christopher columbus	history_christopher_columbus
 history vs henry viii	history_henry_viii
 ugly history witch hunts	witch_hunts
@@ -1937,7 +1937,7 @@ what does the future hold 11 characters offer quirky answers	future_11_character
 there are no mistakes on the bandstand	mistakes_bandstand
 watch me play the audience	play_audience
 the optimism bias	optimism_bias
-should you trust your first impression	trust_first_impression
+should you trust your first impression	trust_impression
 the psychology behind irrational decisions	psychology_irrational_decisions
 what is zenos dichotomy paradox	zenos_dichotomy_paradox
 can you solve the multiplying rabbits riddle	solve_multiplying_rabbits_riddle
@@ -1945,10 +1945,10 @@ the secret structure of great talks	structure_great_talks
 how to pitch to a vc	pitch_vc
 how to find the person who can help you get ahead at work	find_person_help_work
 know your worth and then ask for it	know_worth_ask
-how to speak up for yourself	speak_yourself
+how to speak up for yourself	speak
 3 lessons on success from an arab businesswoman	lessons_success_arab_businesswoman
 confessions of a bad feminist	confessions_feminist
-one woman five characters and a sex lesson from the future	one_woman_five_characters_sex_lesson
+one woman five characters and a sex lesson from the future	woman_characters_sex_lesson
 how porn changes the way teens think about sex	porn_teens_sex
 how revenge porn turns lives upside down	revenge_porn_lives
 its time for the law to protect victims of gender violence	law_protect_victims_gender_violence
@@ -1962,8 +1962,8 @@ a robot that runs and swims like a salamander	robot_runs_swims_salamander
 why we will rely on robots	rely_robots
 a robot that eats pollution	robot_eats_pollution
 a climate change solution thats right under our feet	climate_change_solution
-the disarming case to act right now on climate change	act_now_climate_change
-why you should be a climate activist	be_climate_activist
+the disarming case to act right now on climate change	act_climate_change
+why you should be a climate activist	climate_activist
 how climate change affects your mental health	climate_change_mental_health
 can we solve global warming lessons from how we protected the ozone layer	solve_global_warming_protected_ozone_layer
 how to grow a glacier	grow_glacier
@@ -1985,18 +1985,18 @@ the history of human emotions	history_emotions
 this app knows how you feel from the look on your face	app_feel_look_face
 how were teaching computers to understand pictures	teaching_computers_pictures
 the wonderful and terrifying implications of computers that can learn	terrifying_implications_computers
-wheres google going next	google_next
+wheres google going next	google
 why google glass	google_glass
 adjustable liquidfilled eyeglasses	liquidfilled_eyeglasses
 one second every day	second_day
 the internet could crash we need a plan b	internet_crash_plan_b
-back to the future of 1994	back_future_1994
+back to the future of 1994	future_1994
 understanding cancer through proteomics	cancer_proteomics
 discover the physical side of the internet	physical_internet
 wireless data from every light bulb	wireless_data_bulb
 the wireless future of medicine	wireless_medicine
 the big idea my brother inspired	idea_brother_inspired
-a new way to monitor vital signs that can see through walls	monitor_vital_through_walls
+a new way to monitor vital signs that can see through walls	monitor_vital_walls
 what intelligent machines can learn from a school of fish	intelligent_machines_learn_fish
 can a robot pass a university entrance exam	robot_university_entrance
 what would happen if we upload our brains to computers	upload_brains_computers
@@ -2008,19 +2008,19 @@ how to have a healthier positive relationship to sex	positive_relationship_sex
 the evolution of animal genitalia	evolution_animal_genitalia
 meet the tardigrade the toughest animal on earth	tardigrade_toughest_animal
 why are sloths so slow	sloths_slow
-how do dogs see with their noses	dogs_see_noses
+how do dogs see with their noses	dogs_noses
 howe a brief history of dogs	howe_history_dogs
 sloths the strange life of the worlds slowest mammal	sloths_slowest_mammal
 how trees to each other talk	trees_talk
-why wildfires have gotten worse and what we can do about it	wildfires_worse_about
+why wildfires have gotten worse and what we can do about it	wildfires_worse
 the story we tell about millennials and who we leave out	story_millennials_leave
 what baby boomers can learn from millennials at work and vice versa	baby_boomers_learn_millennials
 how diversity makes teams more innovative	diversity_teams_innovative
 what the people of the amazon know that you dont	people_amazon_know
 how language transformed humanity	language_humanity
-where did english come from	english_from
+where did english come from	english
 how centuries of scifi sparked spaceflight	centuries_scifi_spaceflight
-where are all the aliens	where_aliens
+where are all the aliens	aliens
 the story of oumuamua the first visitor from another star system	story_oumuamua_visitor_star
 how radio telescopes show us unseen galaxies	radio_telescopes_unseen_galaxies
 the most detailed map of galaxies black holes and stars ever made	detailed_map_black_holes
