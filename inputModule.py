@@ -105,4 +105,10 @@ def filechecker(filename):
         extract_doc(filename)
 
 
-file_input()
+while True:
+    ch = input("Enter Y to continue and N to stop")
+    if ch == "y" or ch == "Y":
+        file_input()
+    else:
+        break
+
