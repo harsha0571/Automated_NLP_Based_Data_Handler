@@ -1,0 +1,128 @@
+[
+  {
+    "doc_loc": "640c08980f0e176d73b4388e",
+    "keywords_array": [
+      {
+        "keyword": "Rojas",
+        "score": 2
+      },
+      {
+        "keyword": "Kramer",
+        "score": 7
+      },
+      {
+        "keyword": "Jody",
+        "score": 0
+      },
+      {
+        "keyword": "SCompton",
+        "score": 9
+      },
+      {
+        "keyword": "Elliott",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "doc_loc": "640c0898a3962dc83160dca0",
+    "keywords_array": [
+      {
+        "keyword": "Kimberly",
+        "score": 2
+      },
+      {
+        "keyword": "Phelps",
+        "score": 7
+      },
+      {
+        "keyword": "Hillary",
+        "score": 0
+      },
+      {
+        "keyword": "Melinda",
+        "score": 9
+      },
+      {
+        "keyword": "Caitlin",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "doc_loc": "640c08988fdc6dbd5f738514",
+    "keywords_array": [
+      {
+        "keyword": "Cathleen",
+        "score": 2
+      },
+      {
+        "keyword": "Leonor",
+        "score": 7
+      },
+      {
+        "keyword": "Allison",
+        "score": 0
+      },
+      {
+        "keyword": "Lucy",
+        "score": 9
+      },
+      {
+        "keyword": "Kramer",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "doc_loc": "640c0898fef27a2fe5cc42c9",
+    "keywords_array": [
+      {
+        "keyword": "Elliott",
+        "score": 2
+      },
+      {
+        "keyword": "Esmeralda",
+        "score": 7
+      },
+      {
+        "keyword": "Marta",
+        "score": 0
+      },
+      {
+        "keyword": "Lila",
+        "score": 9
+      },
+      {
+        "keyword": "Jody",
+        "score": 3
+      }
+    ]
+  },
+  {
+    "doc_loc": "640c08985827034994299b1b",
+    "keywords_array": [
+      {
+        "keyword": "Munoz",
+        "score": 2
+      },
+      {
+        "keyword": "Nancy",
+        "score": 7
+      },
+      {
+        "keyword": "Schwartz",
+        "score": 0
+      },
+      {
+        "keyword": "SCompton",
+        "score": 9
+      },
+      {
+        "keyword": "Elliott",
+        "score": 3
+      }
+    ]
+  }
+]
+
