@@ -30,7 +30,7 @@ def generate_json_keywords(keys, doc_location):
     keywords = []
     for key in keys:
         keyDict = {}
-        if key[0] not in sw_spacy:
+        if key[0] not in sw_spacy and key[1] > 0.05:
             keyDict["keyword"] = key[0]
             keyDict["score"] = key[1]
             keywords.append(keyDict)
