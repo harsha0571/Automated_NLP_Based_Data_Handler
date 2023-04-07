@@ -1,0 +1,207 @@
+[
+    {
+        "doc_loc": "dsklfjkdalsjfaklds",
+        "keywords_array": [
+            {
+                "keyword": "supervised",
+                "score": 0.6676
+            },
+            {
+                "keyword": "labeled",
+                "score": 0.4896
+            },
+            {
+                "keyword": "learning",
+                "score": 0.4813
+            },
+            {
+                "keyword": "training",
+                "score": 0.4134
+            },
+            {
+                "keyword": "labels",
+                "score": 0.3947
+            },
+            {
+                "keyword": "supervisory",
+                "score": 0.3297
+            },
+            {
+                "keyword": "data",
+                "score": 0.3136
+            },
+            {
+                "keyword": "algorithm",
+                "score": 0.298
+            },
+            {
+                "keyword": "class",
+                "score": 0.296
+            },
+            {
+                "keyword": "object",
+                "score": 0.2789
+            },
+            {
+                "keyword": "determine",
+                "score": 0.2699
+            },
+            {
+                "keyword": "function",
+                "score": 0.2658
+            },
+            {
+                "keyword": "bias",
+                "score": 0.2644
+            },
+            {
+                "keyword": "task",
+                "score": 0.26
+            },
+            {
+                "keyword": "output",
+                "score": 0.2598
+            },
+            {
+                "keyword": "instances",
+                "score": 0.2595
+            },
+            {
+                "keyword": "machine",
+                "score": 0.2591
+            },
+            {
+                "keyword": "inductive",
+                "score": 0.2577
+            },
+            {
+                "keyword": "examples",
+                "score": 0.257
+            },
+            {
+                "keyword": "signal",
+                "score": 0.2563
+            },
+            {
+                "keyword": "input",
+                "score": 0.251
+            },
+            {
+                "keyword": "mapping",
+                "score": 0.2455
+            },
+            {
+                "keyword": "analyzes",
+                "score": 0.2447
+            },
+            {
+                "keyword": "generalize",
+                "score": 0.2434
+            },
+            {
+                "keyword": "inferred",
+                "score": 0.2392
+            },
+            {
+                "keyword": "maps",
+                "score": 0.2351
+            },
+            {
+                "keyword": "example",
+                "score": 0.2314
+            },
+            {
+                "keyword": "unseen",
+                "score": 0.2091
+            },
+            {
+                "keyword": "optimal",
+                "score": 0.1982
+            },
+            {
+                "keyword": "produces",
+                "score": 0.1561
+            },
+            {
+                "keyword": "vector",
+                "score": 0.1528
+            },
+            {
+                "keyword": "called",
+                "score": 0.1358
+            },
+            {
+                "keyword": "infers",
+                "score": 0.1337
+            },
+            {
+                "keyword": "scenario",
+                "score": 0.132
+            },
+            {
+                "keyword": "situations",
+                "score": 0.1231
+            },
+            {
+                "keyword": "value",
+                "score": 0.1168
+            },
+            {
+                "keyword": "based",
+                "score": 0.1165
+            },
+            {
+                "keyword": "new",
+                "score": 0.1136
+            },
+            {
+                "keyword": "consisting",
+                "score": 0.1041
+            },
+            {
+                "keyword": "set",
+                "score": 0.1021
+            },
+            {
+                "keyword": "pairs",
+                "score": 0.1003
+            },
+            {
+                "keyword": "correctly",
+                "score": 0.0853
+            },
+            {
+                "keyword": "desired",
+                "score": 0.0827
+            },
+            {
+                "keyword": "requires",
+                "score": 0.0723
+            },
+            {
+                "keyword": "pair",
+                "score": 0.057
+            },
+            {
+                "keyword": "typically",
+                "score": 0.0564
+            },
+            {
+                "keyword": "used",
+                "score": 0.0525
+            },
+            {
+                "keyword": "way",
+                "score": 0.0509
+            },
+            {
+                "keyword": "allow",
+                "score": 0.0346
+            },
+            {
+                "keyword": "reasonable",
+                "score": 0.0228
+            }
+        ]
+    }
+]
