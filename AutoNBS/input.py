@@ -85,10 +85,10 @@ def extract_img(filename):
 
 def extract_aud(filename):
     try:
-        model = whisper.load_model("small.pt")
+        model = whisper.load_model("./datasets/small.pt")
         result = model.transcribe(filename)
         return result["text"]
-    except:
+    except Exception as e:
         print("Failed to extract text from this audio file hence skipped")
 
 

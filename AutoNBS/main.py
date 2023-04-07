@@ -3,8 +3,9 @@ import tkinter.filedialog as fd
 
 from tqdm import tqdm
 from time import sleep
-import h5py
+
 import input
+import Keyword_Extract
 
 
 def get_files():
@@ -30,6 +31,9 @@ if __name__ == "__main__":
             text = input.filechecker(list_files[i])
 
             # call to keyword extract and get json
+            json_array = Keyword_Extract.get_keywords_KeyBert(
+                text, list_files[i])
+            print(json_array)
 
             # call to index json into respective index files
 
