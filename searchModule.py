@@ -3,12 +3,28 @@ import polars as pl                             # used to open index files and p
 import time                                     # used to calcuate time taken for each operation
 import pyarrow.parquet as pq                    # used internally by polars
 import math
+import os
+
+# specifying file path for search History file
+searchHistLoc= './personalTests/vaex/data/'
+histFilePath= searchHistLoc+'searchHistory.parquet'
 
 # directoryPath:- location of directory containing the index files
 # keywordList:- list of keywords which will be the name of each index files along with bias files
 # return a list of filepaths based on final score in descending order
 def searchForDocuments(directoryPath, keywordList):
     
+    keyBias= {}
+    # to find if search history bias is usable or not
+    if 'searchHistory.parquet' in os.listdir(searchHistLoc):
+        totalSearches= pq.read_metadata(histFilePath).num_rows
+        if totalSearches>100:
+            df= pl.read_parquet(histFilePath)
+            for key in keywordList:
+                keyBias[key]= 10 + (len(df.filter(pl.col('keys').str.contains("learningdeadline")))/totalSearches)
+        del df
+        
+
     # assembling the global path for each index and bias files of parquet format
     directory= directoryPath + '/'
     extension= '.parquet'
@@ -42,6 +58,8 @@ def searchForDocuments(directoryPath, keywordList):
                                     )
             # updating the score by taking its product with idf value of each keyword
             indexList[i]= indexList[i].with_columns((pl.col('score')* math.log10(lastId/float(rowLenghtList[i]))).alias('score'))
+            if keywordList[i] in keyBias:
+                indexList[i]= indexList[i].with_columns((pl.col('score') * keyBias[keywordList[i]]).alias('score'))
         
         concatDf= pl.concat(indexList)                      #combining all keywords' index info
         result= concatDf.groupby('id').agg([pl.sum('score'), pl.count()]).sort(by='score',descending=True)[:100]
@@ -68,7 +86,8 @@ def searchForDocuments(directoryPath, keywordList):
                                     ).filter((pl.col('id')>=lLimit) & (pl.col('id')<uLimit))
                 # to update the score of each ranged data of the keyword using its 'idf' value
                 indexList[i]= indexList[i].with_columns((pl.col('score')*math.log10(lastId/float(rowLenghtList[i]))).alias('score'))
-               
+                if keywordList[i] in keyBias:
+                    indexList[i]= indexList[i].with_columns((pl.col('score') * keyBias[keywordList[i]]).alias('score'))
             concatDf= pl.concat(indexList)      # to vertically merge the ranged info read from each keyword
             
             # Performing grouping, aggregation and slicing for getting the top 100 results based on score
@@ -82,6 +101,7 @@ def searchForDocuments(directoryPath, keywordList):
         # vertically merging the results of each ranged details
         result= pl.concat(resultList).sort('score', descending= True)[:100]
 
+    updateSearchHistory(keywordList)
     # result= result.select('id')
     return result.collect()             # to execute the lazy dataframe of the polars library
     
@@ -90,10 +110,23 @@ def searchForDocuments(directoryPath, keywordList):
     # pathFinder= pathFinder.filter(pl.col('id').is_in(result)).select('location')
     # return pathFinder.collect()
 
+def updateSearchHistory(keyList):
+    if 'searchHistory.parquet' not in os.listdir(searchHistLoc):
+        data= {'keys': [','.join(keyList)]}
+        pl.from_dict(data).write_parquet(histFilePath)
+    else:
+        df= pl.scan_parquet(histFilePath)
+        print(df)
+        df= df.collect().extend(pl.from_dict({'keys': [','.join(keyList)]}))
+        if len(df)>10000:
+            df= df[1:]
+        print('Hello\n',df)
+        df.write_parquet(histFilePath)
+
 start= time.time()
 # path= './datasets/'
 # searchForDocuments(path, keyWordList)
-print(searchForDocuments('D:/aditya/Final Year/Project Work/Automated_NLP_Based_Data_Handler/personalTests/vaex/data/small',
+print(searchForDocuments('D:/aditya/Final Year/Project Work/Automated_NLP_Based_Data_Handler/personalTests/vaex/data/base',
                      ['newSample1','newSample2','newSample3','newSample4','newSample5','newSample6','newSample7','newSample8','newSample9','newSample10']))
 stop= time.time()
 print('Total time:',stop-start,"sec")
