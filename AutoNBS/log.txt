@@ -77,3 +77,18 @@ did not expect value naive plan: (run LazyFrame.explain(optimized=True) to see t
 Sun Apr  9 19:11:54 2023
 local variable 'df' referenced before assignment
 
+
+
+Sun Apr  9 21:09:17 2023
+[WinError 2] The system cannot find the file specified
+
+
+
+Sun Apr  9 21:10:42 2023
+[WinError 3] The system cannot find the path specified: './AutoNBS/history/'
+
+
+
+Sun Apr  9 21:42:07 2023
+[WinError 2] The system cannot find the file specified
+

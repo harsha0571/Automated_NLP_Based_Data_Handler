@@ -7,11 +7,14 @@ import os
 
 
 def get_files():
-    Tk().withdraw()  # we don't want a full GUI, so keep the root window from appearing
+    # Tk().withdraw() # we don't want a full GUI, so keep the root window from appearing
+    win= Tk()
+    win.attributes('-topmost',True, '-alpha',0)
     # show an "Open" dialog box and return the path to the selected file
+    # win.withdraw()
     files = fd.askopenfilenames(title='Choose files to upload')
     list_files = list(files)
-    Tk().destroy()
+    win.destroy()
     return list_files
 
 
@@ -19,6 +22,7 @@ def index_files():
 
     list_files = get_files()
     print("\n Indexing Started......\n")
+    print(list_files)
     # get existing files and compare to see if file is already exists and  remove as needed
     if "doc_info.parquet" in os.listdir("./AutoNBS/index"):
         import polars as pl
