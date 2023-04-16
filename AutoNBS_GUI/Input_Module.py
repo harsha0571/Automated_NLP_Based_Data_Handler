@@ -39,7 +39,7 @@ def extract_pdf(filename):
                 text += page.extract_text()
         return text
     except Exception as e:
-        with open('l./AutoNBS/log.txt', 'a') as f:
+        with open('l./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nfailed to extract text from this pdf hence skipped")
@@ -75,14 +75,14 @@ def extract_img(filename):
                 text = get_text_image_tesseract(filename)
                 return text
             except Exception as e:
-                with open('./AutoNBS/log.txt', 'a') as f:
+                with open('./log.txt', 'a') as f:
                     f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
                     f.close()
                 print(
                     "\nAll text extraction methods failed hence this image hence skipped")
 
     except Exception as e:
-        with open('./AutoNBS/log.txt', 'a') as f:
+        with open('./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nThe image has lots of noise, hence unsuitable for extraction of text")
@@ -91,11 +91,11 @@ def extract_img(filename):
 def extract_aud(filename):
     import whisper
     try:
-        model = whisper.load_model("./datasets/small.pt")
+        model = whisper.load_model("../datasets/small.pt")
         result = model.transcribe(filename)
         return result["text"]
     except Exception as e:
-        with open('./AutoNBS/log.txt', 'a') as f:
+        with open('./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nFailed to extract text from this audio file hence skipped")
@@ -112,7 +112,7 @@ def extract_doc(filename):
 
         return textFromDoc
     except Exception as e:
-        with open('./AutoNBS/log.txt', 'a') as f:
+        with open('./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nFailed to extract text from this document hence skipped")
@@ -126,7 +126,7 @@ def extract_text(filename):
 
         return contents
     except Exception as e:
-        with open('./AutoNBS/log.txt', 'a') as f:
+        with open('./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nFailed to fetch text form this text file hence skipped")

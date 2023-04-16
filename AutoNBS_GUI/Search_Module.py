@@ -1,12 +1,11 @@
 import polars as pl
 import os
-searchHistLoc = './AutoNBS/history/'
+searchHistLoc = './history/'
 histFilePath = searchHistLoc+'searchHistory.parquet'
 
 
 def searchForDocuments(directoryPath, keywordList):
 
-    import time
     import pyarrow.parquet as pq
     import math
 
@@ -117,7 +116,7 @@ def searchForDocuments(directoryPath, keywordList):
     # return result.collect()             # to execute the lazy dataframe of the polars library
 
     # to return the location of the top 100 files
-    pathFinder = pl.scan_parquet('./AutoNBS/index/doc_info.parquet')
+    pathFinder = pl.scan_parquet('./index/doc_info.parquet')
     pathFinder = pathFinder.filter(
         pl.col('id').is_in(result)).select('location')
     res = pathFinder.collect()

@@ -27,7 +27,7 @@ def get_keywords_KeyBert(text, doc_location, filetype):
         json_array = generate_json_keywords(keys, doc_location)
         return json_array
     except Exception as e:
-        with open('./AutoNBS/log.txt', 'a') as f:
+        with open('./log.txt', 'a') as f:
             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             f.close()
         print("\nKeyword extraction failed hence skipped")

@@ -1,15 +1,13 @@
 import sys
-from PyQt5 import QtWidgets, uic
 from PyQt5.QtCore import Qt, QTimer, QModelIndex, QAbstractTableModel,QSize
 
-from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QListView, QAbstractItemView, QSplashScreen, QHeaderView
+from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QPixmap,QIcon
 
-from sample_ui import Ui_MainWindow
+from appGui import Ui_MainWindow
 
 from codelib import *
 
-from tqdm import tqdm
 import time
 import os
 import webbrowser
@@ -46,7 +44,7 @@ class MyTableModel(QAbstractTableModel):
         return index.column() == 1
 
 
-class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
+class MainWindow(QMainWindow, Ui_MainWindow):
 
     def __init__(self, win=False, *args, obj=None, **kwargs):
         super(MainWindow, self).__init__(*args, **kwargs)
@@ -115,8 +113,9 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.keyEntry.textChanged.connect(self.changeLabel)
         # to add the keyword from lineEdit text
         self.addKey.clicked.connect(self.addKeywords)
+        self.keyEntry.returnPressed.connect(self.addKeywords)
 
-        self.keyList = os.listdir('./AutoNBS/keywords/')
+        self.keyList = os.listdir('./keywords/')
         self.keyList = [i[:-8] for i in self.keyList]
 
         # model for availableKey listView, no multiple selection
@@ -159,6 +158,10 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.goBackHome.clicked.connect(self.quit)
         self.searchAgain.clicked.connect(self.goSearch)
 
+    def updateKeywords(self):
+        self.keyList = os.listdir('./keywords/')
+        self.keyList = [i[:-8] for i in self.keyList]
+
     def filesGet(self):
         self.listfiles = getFiles()
 
@@ -192,7 +195,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
 
         else:
             self.label.setText(message)
-
+        self.updateKeywords()
         self.indexbtn.setEnabled(True)
         self.prevbtn.setEnabled(True)
 
@@ -208,7 +211,13 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         # when no text is given to lineEdit initially, no suggestions
         if text != "":
             # list of keywords which have current text as substring
-            keySet = [name for name in self.keyList if text.lower() in name]
+            newKeywordIndex= text.rfind(',')
+            if newKeywordIndex!=-1:
+                newKeyword= text[newKeywordIndex+1:].strip()
+            else:
+                newKeyword= text
+
+            keySet = [name for name in self.keyList if newKeyword.lower() in name]
             self.provideSuggestions(keySet=keySet)
         else:
             self.provideSuggestions(keySet=[])
@@ -217,8 +226,11 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         text = self.keyEntry.text()
         # minimize risk with case sensitivity
         text = text.lower()
+        textList= text.split(',')
         # adding new keyword in selectedKey
-        self.model.appendRow(QStandardItem(text))
+        for texts in textList:
+            self.model.appendRow(QStandardItem(texts.strip()))
+        self.keyEntry.setText("")
 
     # to add key from suggestions
     def addKeyDirectly(self):
@@ -231,7 +243,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         self.noticedKey = index
 
     def provideSuggestions(self, keySet=[]):
-        if self.checkSuggestions.isChecked:
+        if self.checkSuggestions.isChecked():
             # clear the list before appending data
             self.model1.clear()
             # add suggestive keywords if keySet is a list
@@ -278,24 +290,24 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
         for i in range(length):
             item = self.selectedKeys.model().item(i).text()
             itemList.add(item)
-            print(item)
+            # print(item)
         keywords_list = list(itemList)
         import Search_Module
 
         try:
             keywords_list = [key for key in keywords_list if key +
-                             ".parquet" in os.listdir("./AutoNBS/keywords")]
+                             ".parquet" in os.listdir("./keywords")]
             start = time.time()
             result = Search_Module.searchForDocuments(
-                "./AutoNBS/keywords", keywords_list)
+                "./keywords", keywords_list)
             end = time.time()
 
             self.res = result.select("location").to_numpy()
-            print(os.path.basename(self.res[0][0]))
+            # print(os.path.basename(self.res[0][0]))
             self.path = np.array(
                 ([os.path.basename(self.res[i][0]) for i in range(len(self.res))]))
             self.path = self.path.reshape(len(self.path), 1)
-            print(np.shape(self.path), np.shape(self.res))
+            # print(np.shape(self.path), np.shape(self.res))
             self.res = np.hstack((self.path, self.res))
 
             print("Result fetched in :", end-start, "sec")
@@ -310,7 +322,7 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             # for i in range(len(self.res)):
             #     self.model.appendRow([QStandardItem(i+1), QStandardItem(self.res[i]) ])
         except Exception as e:
-            # with open('./AutoNBS/log.txt', 'a') as f:
+            # with open('./log.txt', 'a') as f:
             #     f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             #     f.close()
             print("Search Failed\n", e)
@@ -321,9 +333,14 @@ class MainWindow(QtWidgets.QMainWindow, Ui_MainWindow):
             value = self.tablemodel.data(item, Qt.DisplayRole)
             webbrowser.open(value)
 
+fileName= ['keywords','history','index']
+for i in range(len(fileName)):
+    if fileName[i] not in os.listdir():
+        os.mkdir('./'+fileName[i])
 
-app = QtWidgets.QApplication(sys.argv)
+app = QApplication(sys.argv)
 
 window = MainWindow()
 window.show()
+
 app.exec()

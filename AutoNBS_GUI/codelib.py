@@ -16,11 +16,11 @@ def getFiles():
 def checkDuplicate(list_files):
     import os
 
-    print(list_files)
+    # print(list_files)
 
-    if "doc_info.parquet" in os.listdir("./AutoNBS/index"):
+    if "doc_info.parquet" in os.listdir("./index"):
         import polars as pl
-        df = pl.scan_parquet('./AutoNBS/index/doc_info.parquet')
+        df = pl.scan_parquet('./index/doc_info.parquet')
         existing_files = list(
             df.select(pl.col('location')).collect().to_dict()['location'])
         intersection = list(set(existing_files).intersection(set(list_files)))
@@ -58,7 +58,7 @@ def indexFiles(list_files):
             try:
                 Index_Module.create_keyword_index(json_array)
             except Exception as e:
-                # with open('./AutoNBS/log.txt', 'a') as f:
+                # with open('./log.txt', 'a') as f:
                 #     f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
                 #     f.close()
                 msg = "Indexation failed for this file hence skipped"

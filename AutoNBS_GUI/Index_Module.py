@@ -14,10 +14,10 @@ def create_keyword_index(data):
     # len_json = len(data_json)
     # print("length of json: ",len_json)
 
-    if "doc_info.parquet" not in os.listdir("./AutoNBS/index"):
+    if "doc_info.parquet" not in os.listdir("./index"):
         len_doc = 0
     else:
-        len_doc = pq.read_metadata("./AutoNBS/index/doc_info.parquet").num_rows
+        len_doc = pq.read_metadata("./index/doc_info.parquet").num_rows
 
     # print("length of docinfo: ",len_doc)
 
@@ -34,32 +34,32 @@ def create_keyword_index(data):
                 keyword_score = key_obj['score']
                 # print(i, keyword_name, keyword_score)
 
-                if keyword_name + ".parquet" not in os.listdir("./AutoNBS/keywords"):
+                if keyword_name + ".parquet" not in os.listdir("./keywords"):
 
                     dict = {"id": len_doc, "score": keyword_score}
                     df = pl.from_dict(data=dict, schema={
                         "id": pl.Int32, "score": pl.Float64})
                     df = df.to_pandas()
-                    df.to_parquet("./AutoNBS/keywords/" +
+                    df.to_parquet("./keywords/" +
                                   keyword_name + ".parquet")
                 else:
                     dict = {"id": len_doc, "score": keyword_score}
                     df = pl.from_dict(data=dict, schema={
                         "id": pl.Int32, "score": pl.Float64})
                     df = df.to_pandas()
-                    fp.write("./AutoNBS/keywords/"+keyword_name +
+                    fp.write("./keywords/"+keyword_name +
                              ".parquet", df, append=True)
 
-            if "doc_info.parquet" not in os.listdir("./AutoNBS/index"):
+            if "doc_info.parquet" not in os.listdir("./index"):
                 dict = {"id": [len_doc+i], "location": [key_loc]}
                 df = pl.from_dict(data=dict, schema={
                     "id": pl.Int32, "location": pl.Utf8})
                 df = df.to_pandas()
-                df.to_parquet("./AutoNBS/index/doc_info.parquet")
+                df.to_parquet("./index/doc_info.parquet")
             else:
                 data = {"id": [len_doc + i], "location": [key_loc]}
                 df1 = pd.DataFrame(data)
-                fp.write("./AutoNBS/index/doc_info.parquet", df1, append=True)
+                fp.write("./index/doc_info.parquet", df1, append=True)
 
     except:
         print("Some error occured")

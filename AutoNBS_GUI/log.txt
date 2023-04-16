@@ -1,0 +1,10 @@
+
+
+Sun Apr 16 19:34:33 2023
+Model ../datasets/small.pt not found; available models = ['tiny.en', 'tiny', 'base.en', 'base', 'small.en', 'small', 'medium.en', 'medium', 'large-v1', 'large-v2', 'large']
+
+
+
+Sun Apr 16 20:51:21 2023
+'charmap' codec can't decode byte 0x9d in position 474: character maps to <undefined>
+
