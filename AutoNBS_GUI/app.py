@@ -204,6 +204,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def goSearch(self):
         self.reset()
+        if self.timeLabel.text != "":
+            self.tablemodel = MyTableModel([])
+            self.timeLabel.setText("")
         self.stackedWidget.setCurrentIndex(2)
         # window.show()
 
@@ -271,6 +274,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.indexList.clear()
 
     def quit(self):
+        
+        self.timeLabel.setText("")
         self.stackedWidget.setCurrentIndex(0)
 
     def reset(self):
@@ -280,6 +285,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.checkSuggestions.setChecked(False)
 
     def startSearch(self):
+        self.tablemodel = MyTableModel([])
         self.stackedWidget.setCurrentIndex(3)
         self.searchsplash.show()
         QTimer.singleShot(2000, self.initiateSearch)
