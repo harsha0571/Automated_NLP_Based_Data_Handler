@@ -1,0 +1,94 @@
+
+
+Sun Apr  9 16:30:49 2023
+'charmap' codec can't decode byte 0x9d in position 682: character maps to <undefined>
+
+
+
+Sun Apr  9 18:21:06 2023
+'>' not supported between instances of 'str' and 'float'
+
+
+
+Sun Apr  9 18:53:45 2023
+[WinError 2] Failed to open local file './AutoNBS/keywords/bankIndex.parquet'. Detail: [Windows error 2] The system cannot find the file specified.
+
+
+
+
+Sun Apr  9 18:54:40 2023
+[WinError 2] Failed to open local file './AutoNBS/keywords/red.parquet'. Detail: [Windows error 2] The system cannot find the file specified.
+
+
+
+
+Sun Apr  9 18:58:05 2023
+[WinError 2] Failed to open local file './AutoNBS/keywords/red.parquet'. Detail: [Windows error 2] The system cannot find the file specified.
+
+
+
+
+Sun Apr  9 18:58:56 2023
+did not expect value naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
+
+ SELECT [col("id")] FROM
+  SLICE[offset: 0, len: 100]
+    SORT BY [col("score")]
+      AGGREGATE
+      	[col("score").sum(), count()] BY [col("id")] FROM
+      	RECHUNK
+  UNION:
+  PLAN 0:
+     WITH_COLUMNS:
+     [[(col("score")) * (7.69897)].alias("score")]
+
+        PARQUET SCAN ./AutoNBS/keywords/bank.parquet
+        PROJECT */2 COLUMNS
+  PLAN 1:
+     WITH_COLUMNS:
+     [[(col("score")) * (7.69897)].alias("score")]
+
+        PARQUET SCAN ./AutoNBS/keywords/hawaii.parquet
+        PROJECT */2 COLUMNS
+  END UNION of type <class 'polars.lazyframe.frame.LazyFrame'>, maybe disambiguate with pl.lit or pl.col
+
+
+
+Sun Apr  9 19:00:21 2023
+did not expect value naive plan: (run LazyFrame.explain(optimized=True) to see the optimized plan)
+
+ SELECT [col("id")] FROM
+  SLICE[offset: 0, len: 100]
+    SORT BY [col("score")]
+      AGGREGATE
+      	[col("score").sum(), count()] BY [col("id")] FROM
+      	RECHUNK
+  UNION:
+  PLAN 0:
+     WITH_COLUMNS:
+     [[(col("score")) * (7.69897)].alias("score")]
+
+        PARQUET SCAN ./AutoNBS/keywords/hawaii.parquet
+        PROJECT */2 COLUMNS
+  END UNION of type <class 'polars.lazyframe.frame.LazyFrame'>, maybe disambiguate with pl.lit or pl.col
+
+
+
+Sun Apr  9 19:11:54 2023
+local variable 'df' referenced before assignment
+
+
+
+Sun Apr  9 21:09:17 2023
+[WinError 2] The system cannot find the file specified
+
+
+
+Sun Apr  9 21:10:42 2023
+[WinError 3] The system cannot find the path specified: './AutoNBS/history/'
+
+
+
+Sun Apr  9 21:42:07 2023
+[WinError 2] The system cannot find the file specified
+
