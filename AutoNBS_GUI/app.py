@@ -164,30 +164,31 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
     def filesGet(self):
         self.listfiles = getFiles()
+        if self.listfiles:
+            self.addbtn.setEnabled(True)
+            self.indexbtn.setText("Start Indexing")
+            self.stackedWidget.setCurrentIndex(1)
+            self.listfiles, self.removedfiles = checkDuplicate(self.listfiles)
 
-        self.addbtn.setEnabled(True)
-        self.indexbtn.setText("Start Indexing")
-        self.stackedWidget.setCurrentIndex(1)
-        self.listfiles, self.removedfiles = checkDuplicate(self.listfiles)
-
-        if len(self.listfiles) == 0:
-            self.indexbtn.setEnabled(False)
-            self.label.setText(
-                "Duplicates file(s) found.\n\n Add Different file(s).")
-        else:
-            totalFiles= len(self.listfiles)+len(self.removedfiles)
-            uniqueFiles= len(self.listfiles)
-            self.indexbtn.setEnabled(True)
-            self.label.setText(
-                str(uniqueFiles)+"/"+str(totalFiles)+" files are unique.\n\n You can now start Indexing your files.")
-        
-        self.removedfiles= ', '.join(self.removedfiles)
-        self.message= QMessageBox()
-        self.message.setIcon(QMessageBox.Information)
-        self.message.setText("Following Files already exist in our system.\n"+self.removedfiles)
-        self.message.setWindowTitle("Duplicate files")
-        self.message.setStandardButtons(QMessageBox.Ok)
-        self.message.exec()
+            if len(self.listfiles) == 0:
+                self.indexbtn.setEnabled(False)
+                self.label.setText(
+                    "Duplicates file(s) found.\n\n Add Different file(s).")
+            else:
+                totalFiles= len(self.listfiles)+len(self.removedfiles)
+                uniqueFiles= len(self.listfiles)
+                self.indexbtn.setEnabled(True)
+                self.label.setText(
+                    str(uniqueFiles)+"/"+str(totalFiles)+" files are unique.\n\n You can now start Indexing your files.")
+            
+            if(self.removedfiles):
+                self.removedfiles= ', '.join(self.removedfiles)
+                self.message= QMessageBox()
+                self.message.setIcon(QMessageBox.Information)
+                self.message.setText("Following Files already exist in our system.\n"+self.removedfiles)
+                self.message.setWindowTitle("Duplicate files")
+                self.message.setStandardButtons(QMessageBox.Ok)
+                self.message.exec()
 
     def startIndex(self):
         self.label.setText("Indexing your file(s)...")
@@ -334,7 +335,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             Search_Module.updateSearchHistory(keywords_list)
             # self.model= QStandardItemModel()
             self.searchsplash.close()
-            keysNotFound = filter(lambda i: i not in keywords_list, keyword_list)
+            keysNotFound = list(filter(lambda i: i not in keywords_list, keyword_list))
+            # print(len(keysNotFound))
             if keysNotFound:
                 keysNotFound= ', '.join(keysNotFound)
                 self.message= QMessageBox()
