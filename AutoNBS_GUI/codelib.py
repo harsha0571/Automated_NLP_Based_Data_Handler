@@ -24,10 +24,12 @@ def checkDuplicate(list_files):
         existing_files = list(
             df.select(pl.col('location')).collect().to_dict()['location'])
         intersection = list(set(existing_files).intersection(set(list_files)))
+        removed_files= []
         for item in intersection:
             if item in list_files:
+                removed_files.append(item)
                 list_files.remove(item)
-    return list_files
+    return [list_files,removed_files]
 
 
 def indexFiles(list_files):
@@ -36,7 +38,7 @@ def indexFiles(list_files):
     import Index_Module
     from tqdm import tqdm
     import time
-
+    keyUnique= []
     no_of_files = len(list_files)
     msg = ""
     if no_of_files != 0:
@@ -56,7 +58,7 @@ def indexFiles(list_files):
 
             # call to index json into respective index files
             try:
-                Index_Module.create_keyword_index(json_array)
+                keyUnique= Index_Module.create_keyword_index(json_array)
             except Exception as e:
                 # with open('./log.txt', 'a') as f:
                 #     f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
@@ -67,4 +69,4 @@ def indexFiles(list_files):
         msg = "Given files are already Indexed"
         print("Given files are already Indexed")
     
-    return msg
+    return [msg, keyUnique]

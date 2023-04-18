@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtCore import Qt, QTimer, QModelIndex, QAbstractTableModel,QSize
 
-from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView
+from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView, QMessageBox
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QPixmap,QIcon
 
 from appGui import Ui_MainWindow
@@ -166,17 +166,28 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.listfiles = getFiles()
 
         self.addbtn.setEnabled(True)
+        self.indexbtn.setText("Start Indexing")
         self.stackedWidget.setCurrentIndex(1)
-        self.listfiles = checkDuplicate(self.listfiles)
+        self.listfiles, self.removedfiles = checkDuplicate(self.listfiles)
 
         if len(self.listfiles) == 0:
             self.indexbtn.setEnabled(False)
             self.label.setText(
                 "Duplicates file(s) found.\n\n Add Different file(s).")
         else:
+            totalFiles= len(self.listfiles)+len(self.removedfiles)
+            uniqueFiles= len(self.listfiles)
             self.indexbtn.setEnabled(True)
             self.label.setText(
-                "No Duplicates found.\n\n You can now start Indexing your files.")
+                str(uniqueFiles)+"/"+str(totalFiles)+" files are unique.\n\n You can now start Indexing your files.")
+        
+        self.removedfiles= ', '.join(self.removedfiles)
+        self.message= QMessageBox()
+        self.message.setIcon(QMessageBox.Information)
+        self.message.setText("Following Files already exist in our system.\n"+self.removedfiles)
+        self.message.setWindowTitle("Duplicate files")
+        self.message.setStandardButtons(QMessageBox.Ok)
+        self.message.exec()
 
     def startIndex(self):
         self.label.setText("Indexing your file(s)...")
@@ -186,20 +197,22 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         QTimer.singleShot(1000, self.fileIndex)
 
     def fileIndex(self):
-        message = indexFiles(self.listfiles)
+        message, keyUnique = indexFiles(self.listfiles)
         self.splash.close()
-
+        keyUnique= list(keyUnique)
+        keyUnique= '\n'.join(keyUnique)
         if len(message) == 0:
             self.label.setText("Your File(s) are now indexed.")
-            self.indexbtn.setEnabled(False)
+            self.label_2.setText("Keywords Found: \n"+keyUnique)
+            self.indexbtn.setText("Indexing Completed")
 
         else:
-            self.label.setText(message)
+            self.label_2.setText(message)
         self.updateKeywords()
-        self.indexbtn.setEnabled(True)
         self.prevbtn.setEnabled(True)
 
     def changePage(self):
+        self.label_2.setText("")
         self.stackedWidget.setCurrentIndex(0)
 
     def goSearch(self):
@@ -285,10 +298,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.checkSuggestions.setChecked(False)
 
     def startSearch(self):
-        self.tablemodel = MyTableModel([])
+        self.fileLocations.setModel(MyTableModel([[]]))
         self.stackedWidget.setCurrentIndex(3)
         self.searchsplash.show()
-        QTimer.singleShot(2000, self.initiateSearch)
+        QTimer.singleShot(1, self.initiateSearch)
 
     def initiateSearch(self):
         length = self.model.rowCount()
@@ -297,11 +310,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             item = self.selectedKeys.model().item(i).text()
             itemList.add(item)
             # print(item)
-        keywords_list = list(itemList)
+        keyword_list = list(itemList)
         import Search_Module
 
         try:
-            keywords_list = [key for key in keywords_list if key +
+            keywords_list = [key for key in keyword_list if key +
                              ".parquet" in os.listdir("./keywords")]
             start = time.time()
             result = Search_Module.searchForDocuments(
@@ -321,17 +334,40 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             Search_Module.updateSearchHistory(keywords_list)
             # self.model= QStandardItemModel()
             self.searchsplash.close()
+            keysNotFound = filter(lambda i: i not in keywords_list, keyword_list)
+            if keysNotFound:
+                keysNotFound= ', '.join(keysNotFound)
+                self.message= QMessageBox()
+                self.message.setIcon(QMessageBox.Information)
+                self.message.setText("Following keywords specified by the users does not exist in the system.\n"+str(keysNotFound))
+                self.message.setWindowTitle("Keywords removed from search")
+                self.message.setStandardButtons(QMessageBox.Ok)
+                self.message.exec()
             self.tablemodel = MyTableModel(self.res)
             self.fileLocations.setModel(self.tablemodel)
             self.timeLabel.setText(
                 "Time taken to Search: \n"+str(end-start)+' seconds')
+
             # for i in range(len(self.res)):
             #     self.model.appendRow([QStandardItem(i+1), QStandardItem(self.res[i]) ])
         except Exception as e:
+            # if not keywords_list:
+            self.searchsplash.close()
+            self.message= QMessageBox()
+            self.message.setIcon(QMessageBox.Warning)
+            self.message.setText("No files with the specified keywords found. Please try again with valid keywords.")
+            self.message.setWindowTitle("Search Failed")
+            self.message.setStandardButtons(QMessageBox.Ok)
+            self.message.buttonClicked.connect(self.msgButtonClick)
+            if self.message.exec()== QMessageBox.Ok:
+                self.goSearch()
             # with open('./log.txt', 'a') as f:
             #     f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
             #     f.close()
             print("Search Failed\n", e)
+    
+    def msgButtonClick(self, option):
+        print("Testing",option)
 
     def OpenLink(self, item):
         # dat=

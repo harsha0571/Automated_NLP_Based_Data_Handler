@@ -8,3 +8,23 @@ Model ../datasets/small.pt not found; available models = ['tiny.en', 'tiny', 'ba
 Sun Apr 16 20:51:21 2023
 'charmap' codec can't decode byte 0x9d in position 474: character maps to <undefined>
 
+
+
+Mon Apr 17 09:08:50 2023
+'charmap' codec can't decode byte 0x9d in position 658: character maps to <undefined>
+
+
+
+Mon Apr 17 09:11:16 2023
+'charmap' codec can't decode byte 0x9d in position 658: character maps to <undefined>
+
+
+
+Mon Apr 17 09:18:03 2023
+'charmap' codec can't decode byte 0x9d in position 1285: character maps to <undefined>
+
+
+
+Mon Apr 17 09:29:47 2023
+'charmap' codec can't decode byte 0x9d in position 1912: character maps to <undefined>
+

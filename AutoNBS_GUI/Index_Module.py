@@ -8,7 +8,7 @@ def create_keyword_index(data):
     import json
     import os
     import pyarrow.parquet as pq
-
+    keyUnique= set()
     data_json = json.loads(data)
 
     # len_json = len(data_json)
@@ -49,7 +49,7 @@ def create_keyword_index(data):
                     df = df.to_pandas()
                     fp.write("./keywords/"+keyword_name +
                              ".parquet", df, append=True)
-
+                keyUnique.add(keyword_name)
             if "doc_info.parquet" not in os.listdir("./index"):
                 dict = {"id": [len_doc+i], "location": [key_loc]}
                 df = pl.from_dict(data=dict, schema={
@@ -60,6 +60,7 @@ def create_keyword_index(data):
                 data = {"id": [len_doc + i], "location": [key_loc]}
                 df1 = pd.DataFrame(data)
                 fp.write("./index/doc_info.parquet", df1, append=True)
+        return keyUnique
 
     except:
         print("Some error occured")
