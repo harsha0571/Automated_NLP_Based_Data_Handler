@@ -1,0 +1,23 @@
+{
+    "totalDocs": 0,
+    "mediaTypes": ["text" ,"image", "audio"],
+    "supportedFormats": ["doc", "pdf", "txt", "img", "png", "jpg", "mp3", "wav"],
+    "mediaFilesCount": 
+    {
+        "text": 0,
+        "image": 0,
+        "audio": 0
+    },
+    "latestFilesAdded": 
+    [
+        {
+            "text": 0,
+            "image": 0,
+            "audio": 0
+        },
+        {
+            
+        }
+    ],    
+    "mostCommonKeywords": {}
+}

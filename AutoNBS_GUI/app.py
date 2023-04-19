@@ -1,10 +1,11 @@
 import sys
 from PyQt5.QtCore import Qt, QTimer, QModelIndex, QAbstractTableModel,QSize
 
-from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView, QMessageBox
+from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView, QMessageBox, QWidget, QVBoxLayout, QLabel, QGraphicsScene, QGraphicsView
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QPixmap,QIcon
 
 from appGui import Ui_MainWindow
+import analyserGui
 
 from codelib import *
 
@@ -12,7 +13,12 @@ import time
 import os
 import webbrowser
 import numpy as np
+from matplotlib import pyplot as plt
+import matplotlib
+matplotlib.use('Qt5Agg')
+from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 
+from pyqtgraph import PlotWidget, plot, GraphicsLayoutWidget, ColorBarItem, PlotItem
 
 class MyTableModel(QAbstractTableModel):
     def __init__(self, data=[[]], parent=None):
@@ -43,6 +49,63 @@ class MyTableModel(QAbstractTableModel):
     def isUrl(self, index: QModelIndex):
         return index.column() == 1
 
+class MplCanvas(FigureCanvasQTAgg):
+
+    def __init__(self, parent=None, width=5, height=4, dpi=100, dat=[], form= []):
+        fig= plt.figure(figsize=(25,10))
+        if dat:
+            if form=='fileAnalysis':
+                data= list(dat['mediaFilesCount'].values())
+                plt.title('Distribution of Files as Text, Images and Audio Media Type')
+                plt.pie(data,autopct='%1.1f%%')
+                plt.legend(['txt','image','audio'],bbox_to_anchor=(1,0), loc="lower right", 
+                            bbox_transform=plt.gcf().transFigure)
+            
+            if form=='mediaLatest':
+                data= list(dat['latestFilesAdded'][0].values())
+                plt.title('Distribution of latest 100 Files as Text, Images and Audio Media Type')
+                plt.pie(data,autopct='%1.1f%%')
+                plt.legend(['txt','image','audio'],bbox_to_anchor=(1,0), loc="lower right", 
+                            bbox_transform=plt.gcf().transFigure)
+                
+            if form=='extensionLatest':
+                data= list(dat['latestFilesAdded'][1].values())
+                extensions= list(dat['latestFilesAdded'][1].keys())
+                plt.title('Distribution of latest 100 Files based on their extensions')
+                plt.bar(extensions, data)
+
+            if form=='keyFrequency':
+                data= list(dat['mostCommonKeywords']['key'][:10])
+                freq= list(dat['mostCommonKeywords']['freq'][:10])
+                plt.title('Most Common keywords and their usage frequency')
+                plt.bar(data, freq)
+                
+
+        super(MplCanvas, self).__init__(fig)
+
+class AnotherWindow(QMainWindow, analyserGui.Ui_MainWindow):
+
+    def __init__(self, win=False, *args, obj=None, **kwargs):
+        super(AnotherWindow, self).__init__(*args, **kwargs)
+        self.setupUi(self)
+        inputData= fetchAnalyticalData()
+        self.fileCountLabel.setText("Total number of files indexed:   "+str(inputData["totalDocs"]))
+        self.fileFormatLabels.setText("All Formats:\n-->  "+', '.join(inputData['supportedFormats']))
+
+        sc = MplCanvas(self, width=5, height=4, dpi=100,dat= inputData, form= 'fileAnalysis')
+        self.fileAnalysis1.addWidget(sc)
+
+        latestFiles1= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form= 'mediaLatest')
+        self.mediaPie.addWidget(latestFiles1)
+        print(list(inputData['mediaFilesCount'].values()))
+
+        latestFiles2= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="extensionLatest")
+        self.extensionBar.addWidget(latestFiles2)
+
+        keyFreq= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="keyFrequency")
+        self.keyFrequency.addWidget(keyFreq)
+
+
 
 class MainWindow(QMainWindow, Ui_MainWindow):
 
@@ -59,6 +122,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         pagebtnstyle = "QPushButton { background-color: #2980B9  ; color: white; border-radius:20px; border:2px solid  #522f02; } QPushButton:hover {background-color:#49abeb }"
         page4btnstyle = "QPushButton {border-color: #000000);background-color: #ff9514; border-radius:15px;}  QPushButton:hover {background-color: #f7af57 }"
         addkeybtnstyle = "QPushButton {  color : black; background-color: #27ff52 } QPushButton:hover {background-color: #71f58b }"
+
+        self.analyseTool.clicked.connect(self.show_new_window)
 
         self.addbtn.clicked.connect(self.filesGet)
         self.indexbtn.clicked.connect(self.startIndex)
@@ -107,13 +172,16 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.prevbtn.setText(" Previous")
 
         self.mainLabel.setText("")
-        self.mainLabel.setMaximumSize(1000, 1000)
+        self.mainLabel.setAlignment(Qt.AlignCenter)
+        # self.mainLabel.setMaximumSize(1000, 1000)
         self.mainLabel.setStyleSheet("image : url(./photos/logo.png) ;background-position: center;background-repeat: no-repeat;")
-
         self.keyEntry.textChanged.connect(self.changeLabel)
         # to add the keyword from lineEdit text
         self.addKey.clicked.connect(self.addKeywords)
         self.keyEntry.returnPressed.connect(self.addKeywords)
+        print(self.docScroll.size())
+        print(self.keyEntry.size())
+        print(self.page_3.size())
 
         self.keyList = os.listdir('./keywords/')
         self.keyList = [i[:-8] for i in self.keyList]
@@ -157,6 +225,10 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
         self.goBackHome.clicked.connect(self.quit)
         self.searchAgain.clicked.connect(self.goSearch)
+    
+    def show_new_window(self, checked):
+        self.w = AnotherWindow()
+        self.w.show()
 
     def updateKeywords(self):
         self.keyList = os.listdir('./keywords/')

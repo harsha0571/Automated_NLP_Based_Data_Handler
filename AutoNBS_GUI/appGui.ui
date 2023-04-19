@@ -103,6 +103,13 @@ border-top-color: rgb(0, 0, 0);</string>
           </item>
          </layout>
         </item>
+        <item>
+         <widget class="QToolButton" name="analyseTool">
+          <property name="text">
+           <string>Analyser</string>
+          </property>
+         </widget>
+        </item>
        </layout>
       </widget>
       <widget class="QWidget" name="page_2">
@@ -207,6 +214,18 @@ border-top-color: rgb(0, 0, 0);</string>
        </layout>
       </widget>
       <widget class="QWidget" name="page_3">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="minimumSize">
+        <size>
+         <width>640</width>
+         <height>480</height>
+        </size>
+       </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
         <item>
          <widget class="QLabel" name="docLabel">
@@ -245,6 +264,12 @@ border-top-color: rgb(0, 0, 0);</string>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLineEdit" name="keyEntry">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="minimumSize">
              <size>
               <width>0</width>
@@ -299,6 +324,18 @@ border-top-color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QScrollArea" name="docScroll">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="minimumSize">
+           <size>
+            <width>618</width>
+            <height>240</height>
+           </size>
+          </property>
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -314,6 +351,12 @@ border-top-color: rgb(0, 0, 0);</string>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
              <widget class="QListView" name="availableKeys">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <pointsize>13</pointsize>
@@ -326,6 +369,12 @@ border-top-color: rgb(0, 0, 0);</string>
             </item>
             <item>
              <widget class="QListView" name="selectedKeys">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
               <property name="font">
                <font>
                 <family>Times New Roman</family>
@@ -370,6 +419,12 @@ border-top-color: rgb(0, 0, 0);</string>
         </item>
         <item>
          <widget class="QDialogButtonBox" name="buttonBox">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="font">
            <font>
             <family>Segoe UI</family>
@@ -441,8 +496,8 @@ background-color: rgb(88, 110, 255);
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>348</width>
-             <height>166</height>
+             <width>754</width>
+             <height>448</height>
             </rect>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_5">

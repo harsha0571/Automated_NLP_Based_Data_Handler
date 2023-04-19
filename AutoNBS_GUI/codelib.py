@@ -69,3 +69,49 @@ def indexFiles(list_files):
         print("Given files are already Indexed")
     
     return [msg, keyUnique]
+
+def fetchAnalyticalData():
+    import json
+    f= open('analysisData.json')
+    inputData= json.load(f)
+    import os
+    if "doc_info.parquet" not in os.listdir('./index/'):
+        inputData["totalDocs"]= 0
+    else:
+        import pyarrow.parquet as pq
+        inputData["totalDocs"]= pq.read_metadata('./index/doc_info.parquet').num_rows
+        import polars as pl
+        df= pl.scan_parquet('./index/doc_info.parquet').select(pl.col('location').str.slice(-3,3)).groupby("location").count().collect()
+        df1= df[-100:]
+
+        for extension, count in df.iter_rows():
+            if extension in ['txt', 'doc', 'pdf']:
+                inputData["mediaFilesCount"]['text']+=count
+            elif extension in ['img', 'png', 'jpg']:
+                inputData["mediaFilesCount"]['image']+=count
+            else:
+                inputData["mediaFilesCount"]['audio']+=count
+
+        for extension, count in df1.iter_rows():
+            if extension in ['txt', 'doc', 'pdf']:
+                inputData["latestFilesAdded"][0]['text']+=count
+            elif extension in ['img', 'png', 'jpg']:
+                inputData["latestFilesAdded"][0]['image']+=count
+            else:
+                inputData["latestFilesAdded"][0]['audio']+=count
+            inputData["latestFilesAdded"][1][extension]=count
+
+        files= os.listdir('./keywords/')
+        extensionList= list(set(df.select(pl.col('location')).to_series()))
+        fileNames= [""]*len(files)
+        freq= [0]*len(files) 
+        for i in range(len(files)):
+            fileNames[i]= files[i][:-8]
+            freq[i]= pq.read_metadata('./keywords/'+files[i]).num_rows
+        inputData['supportedFormats']= extensionList
+        print(list(set(extensionList)))
+        keyFrame= pl.from_dict({'key': fileNames, 'freq': freq}).sort(by= 'freq', descending=True)[:100]
+        keyFrame= keyFrame.to_dict()
+        inputData['mostCommonKeywords']= keyFrame
+    f.close()
+    return inputData
