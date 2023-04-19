@@ -104,11 +104,29 @@ border-top-color: rgb(0, 0, 0);</string>
          </layout>
         </item>
         <item>
-         <widget class="QToolButton" name="analyseTool">
-          <property name="text">
-           <string>Analyser</string>
-          </property>
-         </widget>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QToolButton" name="analyseTool">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>120</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <pointsize>15</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">background-color: rgb(254, 222, 205);</string>
+            </property>
+            <property name="text">
+             <string>Analyser</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
         </item>
        </layout>
       </widget>

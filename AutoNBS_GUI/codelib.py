@@ -72,7 +72,7 @@ def indexFiles(list_files):
 
 def fetchAnalyticalData():
     import json
-    f= open('analysisData.json')
+    f= open('./analyticsData/analysisData.json')
     inputData= json.load(f)
     import os
     if "doc_info.parquet" not in os.listdir('./index/'):
@@ -108,10 +108,32 @@ def fetchAnalyticalData():
         for i in range(len(files)):
             fileNames[i]= files[i][:-8]
             freq[i]= pq.read_metadata('./keywords/'+files[i]).num_rows
+        inputData['totalKeywords']= len(files)
         inputData['supportedFormats']= extensionList
-        print(list(set(extensionList)))
         keyFrame= pl.from_dict({'key': fileNames, 'freq': freq}).sort(by= 'freq', descending=True)[:100]
         keyFrame= keyFrame.to_dict()
         inputData['mostCommonKeywords']= keyFrame
+        # print(inputData['mostCommonKeywords']['freq'])
+        import numpy as np
+        if 'searchHistory.parquet' in os.listdir('./history/'):
+            df= pl.scan_parquet('./history/searchHistory.parquet').select(pl.col('keys').str.split(','))
+            inputData['mostSearchedKeywords']= pl.from_numpy(np.concatenate(df.collect().to_numpy().flatten())).groupby("column_0").count().sort(pl.col("count"),descending=True).to_dict()
+
+        if 'unavailableKeys.parquet' in os.listdir('./analyticsData/'):
+            df= pl.scan_parquet('./analyticsData/unavailableKeys.parquet').select(pl.col('keys').str.split(','))
+            inputData['unavailableKeywords']= pl.from_numpy(np.concatenate(df.collect().to_numpy().flatten())).groupby("column_0").count().sort(pl.col("count"),descending=True).to_dict()
+            # print(inputData["mostSearchedKeyword"])
+
+        if 'topResults.parquet' in os.listdir('./analyticsData/'):
+            df= pl.scan_parquet('./analyticsData/topResults.parquet')
+            # print("I am here")
+            inputData['topDocuments']= df.groupby(["filepath","filename"]).count().sort(pl.col("count"),descending=True).collect().to_dict()
+            # print("I was there")
+            # print(inputData['topDocuments'])
+            # print(inputData["mostSearchedKeyword"])
+
+        if 'timeLog.parquet' in os.listdir('./analyticsData/'):
+            df= pl.scan_parquet('./analyticsData/timeLog.parquet')
+            inputData['timeLog']= df.collect().to_numpy().flatten()
     f.close()
     return inputData

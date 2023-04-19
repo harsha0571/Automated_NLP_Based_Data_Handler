@@ -123,7 +123,7 @@ def searchForDocuments(directoryPath, keywordList):
     return res
 
 
-def updateSearchHistory(keyList):
+def updateSearchHistory(keyList, keysNotFound, topResults, timeTaken):
     if 'searchHistory.parquet' not in os.listdir(searchHistLoc):
         data = {'keys': [','.join(keyList)]}
         pl.from_dict(data).write_parquet(histFilePath)
@@ -135,3 +135,33 @@ def updateSearchHistory(keyList):
             df = df[1:]
 
         df.write_parquet(histFilePath)
+    if 'unavailableKeys.parquet' not in os.listdir('./analyticsData/'):
+        dat= {'keys': [','.join(keysNotFound)]}
+        pl.from_dict(dat).write_parquet('./analyticsData/unavailableKeys.parquet')
+    else:
+        df1= pl.scan_parquet('./analyticsData/unavailableKeys.parquet')
+        df1= df1.collect().extend(pl.from_dict({'keys': [','.join(keysNotFound)]}))
+        if len(df1)>10000:
+            df1= df1[1:]
+        df1.write_parquet("./analyticsData/unavailableKeys.parquet")
+
+    topData= {'filename': [result[0] for result in topResults], 'filepath': [result[1] for result in topResults]}
+    if 'topResults.parquet' not in os.listdir('./analyticsData/'):
+        pl.from_dict(topData).write_parquet('./analyticsData/topResults.parquet')
+    else:
+        df2= pl.scan_parquet('./analyticsData/topResults.parquet')
+        df2= df2.collect().extend(pl.from_dict(topData))
+        if len(df2)>100000:
+            extraRows= len(df2)- 100000
+            df2= df2[extraRows:]
+        df2.write_parquet("./analyticsData/topResults.parquet")
+
+    timeData= {"timeElapsed": [timeTaken]}
+    if 'timeLog.parquet' not in os.listdir('./analyticsData'):
+        pl.from_dict(timeData).write_parquet('./analyticsData/timeLog.parquet')
+    else:
+        df3= pl.scan_parquet('./analyticsData/timeLog.parquet')
+        df3= df3.collect().extend(pl.from_dict(timeData))
+        if len(df3)>10000:
+            df3= df3[1:]
+        df3.write_parquet('./analyticsData/timeLog.parquet')

@@ -1,7 +1,7 @@
 import sys
 from PyQt5.QtCore import Qt, QTimer, QModelIndex, QAbstractTableModel,QSize
 
-from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView, QMessageBox, QWidget, QVBoxLayout, QLabel, QGraphicsScene, QGraphicsView
+from PyQt5.QtWidgets import QDialogButtonBox, QApplication, QMainWindow, QAbstractItemView, QSplashScreen, QHeaderView, QMessageBox
 from PyQt5.QtGui import QStandardItemModel, QStandardItem, QPixmap,QIcon
 
 from appGui import Ui_MainWindow
@@ -17,8 +17,6 @@ from matplotlib import pyplot as plt
 import matplotlib
 matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-
-from pyqtgraph import PlotWidget, plot, GraphicsLayoutWidget, ColorBarItem, PlotItem
 
 class MyTableModel(QAbstractTableModel):
     def __init__(self, data=[[]], parent=None):
@@ -75,10 +73,37 @@ class MplCanvas(FigureCanvasQTAgg):
                 plt.bar(extensions, data)
 
             if form=='keyFrequency':
+
                 data= list(dat['mostCommonKeywords']['key'][:10])
                 freq= list(dat['mostCommonKeywords']['freq'][:10])
                 plt.title('Most Common keywords and their usage frequency')
                 plt.bar(data, freq)
+
+            if form== 'mostSearchedKeys':
+                # print(dat["mostSearchedKeywords"])
+                data= list(dat['mostSearchedKeywords']['column_0'][:10])
+                freq= list(dat['mostSearchedKeywords']['count'][:10])
+                plt.title('Most Searched keywords and their query frequency')
+                plt.bar(data, freq)
+
+            if form== 'mostSearchedUnavailableKeys':
+                # print(dat["mostSearchedKeywords"])
+                data= list(dat['unavailableKeywords']['column_0'][:10])
+                freq= list(dat['unavailableKeywords']['count'][:10])
+                plt.title('Most Searched Unavailable keywords and their query frequency')
+                plt.bar(data, freq)
+
+            if form== 'topDocuments':
+                data= list(dat['topDocuments']['filename'][:10])
+                freq= list(dat['topDocuments']['count'][:10])
+                plt.title('Most Frequently Returned Files as Results for searches')
+                plt.bar(data, freq)
+            
+            if form== 'timeLog':
+                x= [i for i in range(len(dat['timeLog']))]
+                y= dat['timeLog']
+                plt.title('Time taken for Each Search')
+                plt.scatter(x,y)
                 
 
         super(MplCanvas, self).__init__(fig)
@@ -89,6 +114,7 @@ class AnotherWindow(QMainWindow, analyserGui.Ui_MainWindow):
         super(AnotherWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
         inputData= fetchAnalyticalData()
+
         self.fileCountLabel.setText("Total number of files indexed:   "+str(inputData["totalDocs"]))
         self.fileFormatLabels.setText("All Formats:\n-->  "+', '.join(inputData['supportedFormats']))
 
@@ -97,13 +123,27 @@ class AnotherWindow(QMainWindow, analyserGui.Ui_MainWindow):
 
         latestFiles1= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form= 'mediaLatest')
         self.mediaPie.addWidget(latestFiles1)
-        print(list(inputData['mediaFilesCount'].values()))
 
         latestFiles2= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="extensionLatest")
         self.extensionBar.addWidget(latestFiles2)
 
         keyFreq= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="keyFrequency")
         self.keyFrequency.addWidget(keyFreq)
+
+        self.keyCounts.setText("Total Number of Keywords Available:   "+str(inputData['totalKeywords']))
+
+        mostSearchedKeys= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="mostSearchedKeys")
+        self.mostSearchedKeywordLayout.addWidget(mostSearchedKeys)
+
+        mostSearchedUnavailableKeys= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="mostSearchedUnavailableKeys")
+        self.unidentifiedKeywordsLayout.addWidget(mostSearchedUnavailableKeys)
+
+        topDocuments= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="topDocuments")
+        self.topSearchedResultLayout.addWidget(topDocuments)
+
+        timeLog= MplCanvas(self, width=5, height=4, dpi= 100, dat= inputData, form="timeLog")
+        self.searchTimeAnalysisLayout.addWidget(timeLog)
+
 
 
 
@@ -135,6 +175,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.prevbtn.setStyleSheet(pagebtnstyle)
         self.indexbtn.setStyleSheet(pagebtnstyle)
         self.addKey.setStyleSheet(addkeybtnstyle)
+        self.analyseTool.setStyleSheet(pagebtnstyle)
         
 
         self.goBackHome.setStyleSheet(page4btnstyle)
@@ -179,9 +220,9 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # to add the keyword from lineEdit text
         self.addKey.clicked.connect(self.addKeywords)
         self.keyEntry.returnPressed.connect(self.addKeywords)
-        print(self.docScroll.size())
-        print(self.keyEntry.size())
-        print(self.page_3.size())
+        # print(self.docScroll.size())
+        # print(self.keyEntry.size())
+        # print(self.page_3.size())
 
         self.keyList = os.listdir('./keywords/')
         self.keyList = [i[:-8] for i in self.keyList]
@@ -404,10 +445,11 @@ class MainWindow(QMainWindow, Ui_MainWindow):
 
             print("Result fetched in :", end-start, "sec")
 
-            Search_Module.updateSearchHistory(keywords_list)
+            keysNotFound = list(filter(lambda i: i not in keywords_list, keyword_list))
+
+            Search_Module.updateSearchHistory(keywords_list, keysNotFound, self.res[:10],end-start)
             # self.model= QStandardItemModel()
             self.searchsplash.close()
-            keysNotFound = list(filter(lambda i: i not in keywords_list, keyword_list))
             # print(len(keysNotFound))
             if keysNotFound:
                 keysNotFound= ', '.join(keysNotFound)
@@ -421,6 +463,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
             self.fileLocations.setModel(self.tablemodel)
             self.timeLabel.setText(
                 "Time taken to Search: \n"+str(end-start)+' seconds')
+
+
 
             # for i in range(len(self.res)):
             #     self.model.appendRow([QStandardItem(i+1), QStandardItem(self.res[i]) ])

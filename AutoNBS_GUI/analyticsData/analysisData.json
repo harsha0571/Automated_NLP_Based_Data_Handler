@@ -1,5 +1,6 @@
 {
     "totalDocs": 0,
+    "totalKeywords": 0,
     "mediaTypes": ["text" ,"image", "audio"],
     "supportedFormats": ["doc", "pdf", "txt", "img", "png", "jpg", "mp3", "wav"],
     "mediaFilesCount": 
@@ -16,8 +17,23 @@
             "audio": 0
         },
         {
-            
+
         }
     ],    
-    "mostCommonKeywords": {}
+    "mostCommonKeywords": {},
+    "mostSearchedKeywords": 
+    {
+        "column_0": [],
+        "count": []
+    },
+    "unavailableKeywords":
+    {
+        "column_0": [],
+        "count": []
+    },
+    "topDocuments":
+    {
+        
+    },
+    "timeLog": []
 }

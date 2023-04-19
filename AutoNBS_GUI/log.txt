@@ -43,3 +43,58 @@ Wed Apr 19 00:35:33 2023
 Wed Apr 19 06:24:59 2023
 the input array must have size 3 along `channel_axis`, got (422, 759)
 
+
+
+Wed Apr 19 10:30:27 2023
+'charmap' codec can't decode byte 0x9d in position 2546: character maps to <undefined>
+
+
+
+Wed Apr 19 10:30:34 2023
+'charmap' codec can't decode byte 0x9d in position 2167: character maps to <undefined>
+
+
+
+Wed Apr 19 10:30:36 2023
+'charmap' codec can't decode byte 0x9d in position 91: character maps to <undefined>
+
+
+
+Wed Apr 19 10:30:59 2023
+'charmap' codec can't decode byte 0x9d in position 179: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:03 2023
+'charmap' codec can't decode byte 0x9d in position 665: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:03 2023
+'charmap' codec can't decode byte 0x9d in position 112: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:06 2023
+'charmap' codec can't decode byte 0x9d in position 954: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:06 2023
+'charmap' codec can't decode byte 0x9d in position 342: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:11 2023
+'charmap' codec can't decode byte 0x9d in position 3452: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:11 2023
+'charmap' codec can't decode byte 0x9d in position 130: character maps to <undefined>
+
+
+
+Wed Apr 19 10:31:38 2023
+'charmap' codec can't decode byte 0x9d in position 1077: character maps to <undefined>
+
