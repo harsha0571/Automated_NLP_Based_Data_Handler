@@ -113,6 +113,7 @@ class AnotherWindow(QMainWindow, analyserGui.Ui_MainWindow):
     def __init__(self, win=False, *args, obj=None, **kwargs):
         super(AnotherWindow, self).__init__(*args, **kwargs)
         self.setupUi(self)
+
         inputData= fetchAnalyticalData()
 
         self.fileCountLabel.setText("Total number of files indexed:   "+str(inputData["totalDocs"]))
@@ -268,8 +269,19 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.searchAgain.clicked.connect(self.goSearch)
     
     def show_new_window(self, checked):
-        self.w = AnotherWindow()
-        self.w.show()
+        newSet= ['unavailableKeys.parquet', 'timeLog.parquet','topResults.parquet']
+        newSet.extend(os.listdir('./analyticsData/'))
+        
+        if "doc_info.parquet" in os.listdir('./index') and "searchHistory.parquet" in os.listdir('./history') and len(os.listdir('./keywords/'))!=0 and  len(set(newSet))==len(os.listdir('./analyticsData')):
+            self.w = AnotherWindow()
+            self.w.show()
+        else:
+            self.message= QMessageBox()
+            self.message.setIcon(QMessageBox.Warning)
+            self.message.setText("Not enough data for visualization. Please add files or apply search operations.")
+            self.message.setWindowTitle("Analysis not possible")
+            self.message.setStandardButtons(QMessageBox.Ok)
+            self.message.exec()
 
     def updateKeywords(self):
         self.keyList = os.listdir('./keywords/')

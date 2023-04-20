@@ -16,8 +16,7 @@ def searchForDocuments(directoryPath, keywordList):
         if totalSearches > 100:
             df = pl.read_parquet(histFilePath)
             for key in keywordList:
-                keyBias[key] = 10 + \
-                    (len(df.filter(pl.col('keys').str.contains(key)))/totalSearches)
+                keyBias[key] = 10 + (len(df.filter(pl.col('keys').str.contains(key)))/totalSearches)
             del df
 
     # assembling the global path for each index and bias files of parquet format
@@ -27,13 +26,17 @@ def searchForDocuments(directoryPath, keywordList):
     globalIndexPath = [directory + file for file in indexFiles]
 
     # To access the id-location file
+
+    lastId= maxRowNo= 0
+    if 'doc_info.parquet' in os.listdir('./index/'):
+        lastId= maxRowNo= pq.read_metadata('./index/doc_info.parquet').num_rows
     # addressBook= pl.scan_parquet('./datasets/doc_info.parquet)
     # lastId= pq.read_metadata('./datasets/doc_info.parquet').num_rows      # finds the total no. of docs in system
-    lastId = 50000000
+    # lastId = 50000000
 
     # total number of rows considering all keyword index files
     total_rows = 0
-    maxRowNo = 50000000                 # the last document to be added in the file system
+    # maxRowNo = 50000000                 # the last document to be added in the file system
     # list of total number documents containing each keyword
     rowLenghtList = [i for i in range(len(keywordList))]
 
@@ -64,7 +67,7 @@ def searchForDocuments(directoryPath, keywordList):
 
         concatDf = pl.concat(indexList)  # combining all keywords' index info
         result = concatDf.groupby('id').agg([pl.mean('score'), pl.count()]).sort(
-            by='score', descending=True)[:100]
+            by='score', descending=True)[:100].collect()
 
     else:
         # to access documents with id in the range of 'n' 40000000
@@ -101,7 +104,7 @@ def searchForDocuments(directoryPath, keywordList):
 
             # Performing grouping, aggregation and slicing for getting the top 100 results based on score
             resultList[counter] = concatDf.groupby('id').agg(
-                [pl.mean('score'), pl.count()]).sort(by='score', descending=True)[:100]
+                [pl.mean('score'), pl.count()]).sort(by='score', descending=True)[:100].collect()
 
             # updating iteration specific variables
             counter += 1
@@ -112,7 +115,7 @@ def searchForDocuments(directoryPath, keywordList):
         result = pl.concat(resultList).sort('score', descending=True)[:100]
 
     # updateSearchHistory(keywordList)
-    result = result.select('id').collect().to_series()
+    result = result.select('id').to_series()
     # return result.collect()             # to execute the lazy dataframe of the polars library
 
     # to return the location of the top 100 files
@@ -135,15 +138,20 @@ def updateSearchHistory(keyList, keysNotFound, topResults, timeTaken):
             df = df[1:]
 
         df.write_parquet(histFilePath)
+    if keysNotFound:
+        if 'unavailableKeys.parquet' not in os.listdir('./analyticsData/'):
+            dat= {'keys': [','.join(keysNotFound)]}
+            pl.from_dict(dat).write_parquet('./analyticsData/unavailableKeys.parquet')
+        else:
+            df1= pl.scan_parquet('./analyticsData/unavailableKeys.parquet')
+            df1= df1.collect().extend(pl.from_dict({'keys': [','.join(keysNotFound)]}))
+            if len(df1)>10000:
+                df1= df1[1:]
+            df1.write_parquet("./analyticsData/unavailableKeys.parquet")
     if 'unavailableKeys.parquet' not in os.listdir('./analyticsData/'):
-        dat= {'keys': [','.join(keysNotFound)]}
-        pl.from_dict(dat).write_parquet('./analyticsData/unavailableKeys.parquet')
-    else:
-        df1= pl.scan_parquet('./analyticsData/unavailableKeys.parquet')
-        df1= df1.collect().extend(pl.from_dict({'keys': [','.join(keysNotFound)]}))
-        if len(df1)>10000:
-            df1= df1[1:]
-        df1.write_parquet("./analyticsData/unavailableKeys.parquet")
+        dat= {'keys': []}
+        pl.from_dict(dat, schema= {"keys": pl.Utf8}).write_parquet('./analyticsData/unavailableKeys.parquet')
+    # print(pl.read_parquet("./analyticsData/unavailableKeys.parquet"))
 
     topData= {'filename': [result[0] for result in topResults], 'filepath': [result[1] for result in topResults]}
     if 'topResults.parquet' not in os.listdir('./analyticsData/'):

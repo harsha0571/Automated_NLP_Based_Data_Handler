@@ -119,7 +119,7 @@ def fetchAnalyticalData():
             df= pl.scan_parquet('./history/searchHistory.parquet').select(pl.col('keys').str.split(','))
             inputData['mostSearchedKeywords']= pl.from_numpy(np.concatenate(df.collect().to_numpy().flatten())).groupby("column_0").count().sort(pl.col("count"),descending=True).to_dict()
 
-        if 'unavailableKeys.parquet' in os.listdir('./analyticsData/'):
+        if 'unavailableKeys.parquet' in os.listdir('./analyticsData/') and pq.read_metadata('./analyticsData/unavailableKeys.parquet').num_rows>0:
             df= pl.scan_parquet('./analyticsData/unavailableKeys.parquet').select(pl.col('keys').str.split(','))
             inputData['unavailableKeywords']= pl.from_numpy(np.concatenate(df.collect().to_numpy().flatten())).groupby("column_0").count().sort(pl.col("count"),descending=True).to_dict()
             # print(inputData["mostSearchedKeyword"])
