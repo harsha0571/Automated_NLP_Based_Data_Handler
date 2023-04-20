@@ -178,6 +178,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.addKey.setStyleSheet(addkeybtnstyle)
         self.analyseTool.setStyleSheet(pagebtnstyle)
         
+      
 
         self.goBackHome.setStyleSheet(page4btnstyle)
         self.searchAgain.setStyleSheet(page4btnstyle)
@@ -221,7 +222,7 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         # to add the keyword from lineEdit text
         self.addKey.clicked.connect(self.addKeywords)
         self.keyEntry.returnPressed.connect(self.addKeywords)
-        # print(self.docScroll.size())
+        # print(self.docScroll.size())  
         # print(self.keyEntry.size())
         # print(self.page_3.size())
 
@@ -288,6 +289,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         self.keyList = [i[:-8] for i in self.keyList]
 
     def filesGet(self):
+        self.keyword_label.setText("")
+
         self.listfiles = getFiles()
         if self.listfiles:
             self.addbtn.setEnabled(True)
@@ -329,7 +332,8 @@ class MainWindow(QMainWindow, Ui_MainWindow):
         keyUnique= '\n'.join(keyUnique)
         if len(message) == 0:
             self.label.setText("Your File(s) are now indexed.")
-            self.label_2.setText("Keywords Found: \n"+keyUnique)
+            self.keyword_label.setText("Keywords Found: \n")
+            self.label_2.setText(keyUnique)
             self.indexbtn.setText("Indexing Completed")
 
         else:
