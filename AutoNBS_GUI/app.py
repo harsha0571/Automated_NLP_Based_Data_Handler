@@ -50,6 +50,7 @@ class MyTableModel(QAbstractTableModel):
 class MplCanvas(FigureCanvasQTAgg):
 
     def __init__(self, parent=None, width=5, height=4, dpi=100, dat=[], form= []):
+
         fig= plt.figure(figsize=(25,10))
         if dat:
             if form=='fileAnalysis':
@@ -71,6 +72,8 @@ class MplCanvas(FigureCanvasQTAgg):
                 extensions= list(dat['latestFilesAdded'][1].keys())
                 plt.title('Distribution of latest 100 Files based on their extensions')
                 plt.bar(extensions, data)
+                plt.xlabel('file formats')
+                plt.ylabel('frequency')
 
             if form=='keyFrequency':
 
@@ -78,6 +81,8 @@ class MplCanvas(FigureCanvasQTAgg):
                 freq= list(dat['mostCommonKeywords']['freq'][:10])
                 plt.title('Most Common keywords and their usage frequency')
                 plt.bar(data, freq)
+                plt.xlabel('keywords')
+                plt.ylabel('frequency')
 
             if form== 'mostSearchedKeys':
                 # print(dat["mostSearchedKeywords"])
@@ -85,6 +90,8 @@ class MplCanvas(FigureCanvasQTAgg):
                 freq= list(dat['mostSearchedKeywords']['count'][:10])
                 plt.title('Most Searched keywords and their query frequency')
                 plt.bar(data, freq)
+                plt.xlabel('keywords')
+                plt.ylabel('frequency')
 
             if form== 'mostSearchedUnavailableKeys':
                 # print(dat["mostSearchedKeywords"])
@@ -92,18 +99,24 @@ class MplCanvas(FigureCanvasQTAgg):
                 freq= list(dat['unavailableKeywords']['count'][:10])
                 plt.title('Most Searched Unavailable keywords and their query frequency')
                 plt.bar(data, freq)
+                plt.xlabel('unidentified keywords')
+                plt.ylabel('frequency')
 
             if form== 'topDocuments':
                 data= list(dat['topDocuments']['filename'][:10])
                 freq= list(dat['topDocuments']['count'][:10])
                 plt.title('Most Frequently Returned Files as Results for searches')
                 plt.bar(data, freq)
+                plt.xlabel('filename')
+                plt.ylabel('frequency')
             
             if form== 'timeLog':
                 x= [i for i in range(len(dat['timeLog']))]
                 y= dat['timeLog']
                 plt.title('Time taken for Each Search')
                 plt.scatter(x,y)
+                plt.xlabel('search instance')
+                plt.ylabel('time elapsed for search completion')
                 
 
         super(MplCanvas, self).__init__(fig)

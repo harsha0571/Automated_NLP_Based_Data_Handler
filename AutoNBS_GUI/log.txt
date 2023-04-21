@@ -128,3 +128,87 @@ Wed Apr 19 18:25:40 2023
 Thu Apr 20 15:16:40 2023
 'charmap' codec can't decode byte 0x9d in position 1049: character maps to <undefined>
 
+
+
+Thu Apr 20 23:55:38 2023
+'charmap' codec can't decode byte 0x9d in position 1489: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:40 2023
+'charmap' codec can't decode byte 0x9d in position 915: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:46 2023
+'charmap' codec can't decode byte 0x9d in position 1876: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:53 2023
+'charmap' codec can't decode byte 0x9d in position 965: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:53 2023
+'charmap' codec can't decode byte 0x9d in position 276: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:55 2023
+'charmap' codec can't decode byte 0x9d in position 1285: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:56 2023
+'charmap' codec can't decode byte 0x9d in position 658: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:57 2023
+'charmap' codec can't decode byte 0x9d in position 3918: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:57 2023
+'charmap' codec can't decode byte 0x9d in position 1912: character maps to <undefined>
+
+
+
+Thu Apr 20 23:55:59 2023
+'charmap' codec can't decode byte 0x9d in position 474: character maps to <undefined>
+
+
+
+Fri Apr 21 00:31:32 2023
+the input array must have size 3 along `channel_axis`, got (668, 1038)
+
+
+
+Fri Apr 21 00:32:08 2023
+Could not find a backend to open `D:/aditya/Final Year/Project Work/Automated_NLP_Based_Data_Handler/datasets/Aditya/imageEvidence/3.jpg`` with iomode `ri`.
+Based on the extension, the following plugins might add capable backends:
+  pyav:  pip install imageio[pyav]
+
+
+
+Fri Apr 21 00:33:16 2023
+Could not find a backend to open `D:/aditya/Final Year/Project Work/Automated_NLP_Based_Data_Handler/datasets/Aditya/imageEvidence/8.jpg`` with iomode `ri`.
+Based on the extension, the following plugins might add capable backends:
+  pyav:  pip install imageio[pyav]
+
+
+
+Fri Apr 21 00:34:25 2023
+the input array must have size 3 along `channel_axis`, got (422, 759)
+
+
+
+Fri Apr 21 00:41:25 2023
+the input array must have size 3 along `channel_axis`, got (1134, 850)
+
+
+
+Fri Apr 21 07:11:44 2023
+file 'D:/DSATM e-resources List for the academic year 2021-22.doc' is not a Word file, content type is 'application/vnd.openxmlformats-officedocument.themeManager+xml'
+

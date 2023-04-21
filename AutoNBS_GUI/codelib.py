@@ -81,8 +81,9 @@ def fetchAnalyticalData():
         import pyarrow.parquet as pq
         inputData["totalDocs"]= pq.read_metadata('./index/doc_info.parquet').num_rows
         import polars as pl
-        df= pl.scan_parquet('./index/doc_info.parquet').select(pl.col('location').str.slice(-3,3)).groupby("location").count().collect()
-        df1= df[-100:]
+        df0= pl.scan_parquet('./index/doc_info.parquet').select(pl.col('location').str.extract(pattern= r"[.](\w+)"))
+        df= df0.groupby("location").count().collect()
+        df1= df0.tail(100).groupby("location").count().collect()
 
         for extension, count in df.iter_rows():
             if extension in ['txt', 'doc', 'pdf']:
@@ -92,6 +93,7 @@ def fetchAnalyticalData():
             else:
                 inputData["mediaFilesCount"]['audio']+=count
 
+        # print(pl.read_parquet('./index/doc_info.parquet').select(pl.col('location').str.extract(pattern= r"[.](\w+)")))
         for extension, count in df1.iter_rows():
             if extension in ['txt', 'doc', 'pdf']:
                 inputData["latestFilesAdded"][0]['text']+=count
