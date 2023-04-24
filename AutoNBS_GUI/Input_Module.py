@@ -63,23 +63,24 @@ def extract_img(filename):
         numpydata = asarray(img)
         obj = BRISQUE(url=False)
         score = obj.score(numpydata)
-        if score <= 90:
+        if score <= 99:
             reader = easyocr.Reader(['en'])
             results = reader.readtext(filename, detail=0)
             text = "\n".join(results)
             return text
-
         else:
-            try:
-                print("\nusing pytesseract so accuracy might be lower")
-                text = get_text_image_tesseract(filename)
-                return text
-            except Exception as e:
-                with open('./log.txt', 'a') as f:
-                    f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
-                    f.close()
-                print(
-                    "\nAll text extraction methods failed hence this image hence skipped")
+            print("\n Image Quality not sufficeint thus skipped")
+        # else:
+        #     try:
+        #         print("\nusing pytesseract so accuracy might be lower")
+        #         text = get_text_image_tesseract(filename)
+        #         return text
+        #     except Exception as e:
+        #         with open('./log.txt', 'a') as f:
+        #             f.write('\n\n'+time.ctime()+"\n"+str(e)+"\n\n")
+        #             f.close()
+        #         print(
+        #             "\nAll text extraction methods failed hence this image hence skipped")
 
     except Exception as e:
         with open('./log.txt', 'a') as f:
