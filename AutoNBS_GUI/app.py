@@ -107,6 +107,7 @@ class MplCanvas(FigureCanvasQTAgg):
                 freq= list(dat['topDocuments']['count'][:10])
                 plt.title('Most Frequently Returned Files as Results for searches')
                 plt.bar(data, freq)
+                plt.xticks(rotation='vertical')
                 plt.xlabel('filename')
                 plt.ylabel('frequency')
             
@@ -114,7 +115,7 @@ class MplCanvas(FigureCanvasQTAgg):
                 x= [i for i in range(len(dat['timeLog']))]
                 y= dat['timeLog']
                 plt.title('Time taken for Each Search')
-                plt.scatter(x,y)
+                plt.plot(x,y)
                 plt.xlabel('search instance')
                 plt.ylabel('time elapsed for search completion')
                 

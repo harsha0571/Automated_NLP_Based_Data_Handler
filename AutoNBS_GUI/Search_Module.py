@@ -1,5 +1,6 @@
 import polars as pl
 import os
+import numpy as np
 searchHistLoc = './history/'
 histFilePath = searchHistLoc+'searchHistory.parquet'
 
@@ -9,14 +10,14 @@ def searchForDocuments(directoryPath, keywordList):
     import pyarrow.parquet as pq
     import math
 
-    keyBias = {}
+    keyBias = [1 for i in range(len(keywordList))]
     # to find if search history bias is usable or not
     if 'searchHistory.parquet' in os.listdir(searchHistLoc):
         totalSearches = pq.read_metadata(histFilePath).num_rows
         if totalSearches > 100:
             df = pl.read_parquet(histFilePath)
             for key in keywordList:
-                keyBias[key] = 10 + (len(df.filter(pl.col('keys').str.contains(key)))/totalSearches)
+                keyBias[key] = 1 + (len(df.filter(pl.col('keys').str.contains(key)))/totalSearches)
             del df
 
     # assembling the global path for each index and bias files of parquet format
@@ -66,9 +67,14 @@ def searchForDocuments(directoryPath, keywordList):
                     (pl.col('score') * keyBias[keywordList[i]]).alias('score'))
 
         concatDf = pl.concat(indexList)  # combining all keywords' index info
-        result = concatDf.groupby('id').agg([pl.mean('score'), pl.count()]).sort(
-            by='score', descending=True)[:100].collect()
-
+        # print(concatDf.collect())
+        result = concatDf.groupby('id').agg([pl.mean('score'), pl.count()])
+        result= result.sort(
+            by=['score'], descending=True)[:100].collect()
+        result=result.sort(by='score', descending=True)
+        print(result)
+        # print(concatDf.groupby('id').agg([pl.sum('score'), pl.count()]).sort(
+            # by=['count','score'], descending=True)[:100].collect())
     else:
         # to access documents with id in the range of 'n' 40000000
         rangeSize = 40000000
@@ -114,15 +120,37 @@ def searchForDocuments(directoryPath, keywordList):
         # vertically merging the results of each ranged details
         result = pl.concat(resultList).sort('score', descending=True)[:100]
 
+    # print(result.filter(pl.col('id')==47))
     # updateSearchHistory(keywordList)
-    result = result.select('id').to_series()
+    result1 = result.select('id').to_series()
+    # print(result1)
+    
+    # scored_doc = []
+    # paths = pl.read_parquet('./index/doc_info.parquet')
+    # print("PATHS",paths)
+    # for i in result1:
+    #     doc = paths.filter(pl.col("id")== i).select("location").to_numpy()[0]
+    #     scored_doc.append(doc)
+    # scored_doc= np.concatenate(scored_doc)
+    # print(type(scored_doc[0]))
+
+    result2= list(np.concatenate(list(result.select('id').to_numpy())))
+    print("desired ids: ", result2)
+    # print("scored docs: " , scored_doc)
+    # print("scored type",type(scored_doc))
+    
     # return result.collect()             # to execute the lazy dataframe of the polars library
 
     # to return the location of the top 100 files
     pathFinder = pl.scan_parquet('./index/doc_info.parquet')
     pathFinder = pathFinder.filter(
-        pl.col('id').is_in(result)).select('location')
-    res = pathFinder.collect()
+        pl.col('id').is_in(result1)).collect()
+    # .select('location')
+
+    new_df= pl.DataFrame({'id': result2},schema={'id': pl.Int32})
+    pathFinder= pathFinder.join(new_df, on= 'id')
+    res= pathFinder.select('location')
+    
     return res
 
 
