@@ -1,14 +1,7 @@
 
-# Automated NLP based data handler
+# Automated NLP based Search System for Files (AutoNBS)
 
-This projects aims to create an automated data handler capable of automatically processing diffrent data formats and index them for search with keywords as input and gives the most relevant result using nlp keyword ranking.The data format includes text files , audio clips and images with text in them. 
+AutoNBS is an offline multimedia search system built to retrieve the most relevant media file based on the search parameters provided by user. Unlike traditional file system searches, the retrieval is based on content which is pre-indexed for quick queries. The current support is for text documents, audio and images. The traditional file browsing methods like File Browser at the domestic scale to search for documents provide only minimalistic features like filtering the files based on its type, size, and date of modification. However, to handle vast amounts of diverse information and big data in today’s time, these techniques fall short in fetching the documents. Our automated search system for files provides a solution by finding the documents based on its content. It is designed to have an interface using which, a user can add files as well as search for the files giving unique keywords as input. The files are indexed and stored in space-efficient format. It also makes sure that files are not duplicated and suffice the basic quality requirements. Based on the user’s input and search patterns, a bias will be used to retrieve the files that are deemed the most relevant as per the user’s expectations along with useful analytics of search trends.
 
-![Propesed application workflow](/assets/Advanced_Search.png "San Juan Mountains")
+![Propesed application workflow](/assets/System_Architecutre.jpg "Picture Not Available")
 
-## Libraries/Frameworks to be used 
-
-1. pytesseract
-2. PIL (Python Imaging Library)
-3. SpeechRecognition
-4. PyAudio
-5. spaCy
